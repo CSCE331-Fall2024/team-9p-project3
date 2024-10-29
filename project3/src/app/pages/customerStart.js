@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function CustomerStartPage() {
+export default function CustomerStartPage({ switchPage }) {
     return (
         <div className="flex flex-col justify-center items-center h-screen">
             <div className="flex flex-1 justify-center items-center w-full bg-red-700">
@@ -8,9 +8,12 @@ export default function CustomerStartPage() {
                     Welcome to Panda Express!
                 </h1>
             </div>
-            <Link href="/customerMainMenu" className="flex justify-center items-center w-full h-1/3 bg-red-300 text-black text-2xl hover:bg-red-400 transition-colors">
-            Touch to Start Order
-            </Link>
+            <button 
+              onClick={() => switchPage('customerMainMenuPage')}
+              className="flex justify-center items-center w-full h-1/3 bg-red-300 text-black text-2xl hover:bg-red-400 transition-colors"
+            >
+              Touch to Start Order
+            </button>
         </div>
     );
 }
