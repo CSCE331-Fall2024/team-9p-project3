@@ -10,7 +10,7 @@ export default function CustomerMenuPage() {
             <div className="flex flex-row h-full w-full">
                 <div className="flex flex-col justify-center items-end h-full w-2/12 bg-gray-300">
                 </div>
-                <div className="flex flex-col justify-center items-end h-full w-10/12">
+                <div className="flex flex-col justify-center items-end h-full w-full">
                     <div className="flex justify-center items-center h-1/6 w-full bg-white">
                     </div>
                     <div className="flex justify-center items-center h-5/6 w-full">
@@ -31,7 +31,6 @@ export default function CustomerMenuPage() {
                     </div>
                 </div>
             </div>
-            
         <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
