@@ -9,7 +9,7 @@ export default function CustomerStartPage() {
                 </h1>
             </div>
             <Link href="/" className="flex justify-center items-center w-full h-1/3 bg-red-300 text-black text-2xl hover:bg-red-400 transition-colors">
-            GO BACK ??
+            Touch to Start Order (For now goes back)
             </Link>
         </div>
     );
