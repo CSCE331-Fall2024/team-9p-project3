@@ -1,5 +1,36 @@
-Meeting Time:
+Meeting Time: 10/25/24
+Members Present: All
+Notes: 
+- Begin discussing project requirements and expectations
+- Ask professor for clarification regarding sprint 1 requirements
+- Set up Jira scrum board and begin populating items
 
-Members Present:
 
-Notes:
+
+Meeting Time: 10/27/24
+Members Present: Truman, Mario, Yuan
+Notes: 
+- Worked on Project design and managment deliverable
+- Add more specific tasks to Jira board regarding project 3 TODO items
+- Decided we would ake our buttons as large as possible to help with accessibility
+- Sprint 1 will involve customer view because it should be the most simple 
+
+
+Meeting Time: 10/28/24
+Members Present: All
+Notes: 
+- Begin learning node.js and next.js
+- Committed initial setup of next.js project
+- Determine file organization of project specific to next.js
+
+
+Meeting Time: 10/29/24
+Members Present: All
+Notes: 
+- Complete work towards sprint 1 MVP and github release
+- Truman presented to group his working knowledge of next.js to allow the team to catch up. 
+- In order to maintian order state, we will utilize render page to switch page rather than load a whole new site allowing us to track an order as it is created
+- Debate about sprint 1 requirements and MVP expectations from professor
+- Decided that we still were not sure but we will get as much done as we can before midngiht deadline and hope for the best
+- Sprint 1 will likley show the least progress as it involves a lot more time spent learning new technologies rather than actual development
+
