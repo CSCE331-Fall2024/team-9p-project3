@@ -1,5 +1,6 @@
 import Image from "next/image";
-import cartSidePanel from "../components/cartSidePanel";
+import CartSidePanel from "../components/cartSidePanel";
+import OrderingTopPanel from "../components/orderingTopPanel";
 
 export default function CustomerMainMenuPage({ switchPage }) {
     return (
@@ -8,10 +9,9 @@ export default function CustomerMainMenuPage({ switchPage }) {
                 <h2>Order Total = $X.XX</h2>
             </header>
             <div className="flex flex-row h-full w-full">
-                {cartSidePanel()}
+                <CartSidePanel/>
                 <div className="flex flex-col justify-center items-end h-full w-full">
-                    <div className="flex justify-center items-center h-1/6 w-full bg-white">
-                    </div>
+                    <OrderingTopPanel title="Choose Your Item"/>
                     <div className="flex justify-center items-center h-5/6 w-full">
                         <div className="grid grid-cols-2 gap-10 w-full h-full p-8">
                             <button onClick={() => switchPage('home')} className="flex justify-center items-center bg-red-300 text-black text-3xl hover:bg-red-400 transition-colors rounded">

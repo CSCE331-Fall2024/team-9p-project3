@@ -1,4 +1,4 @@
-export default function cartSidePanel() {
+export default function CartSidePanel() {
     return (
         <div className="flex flex-col justify-start items-center h-full w-2/12 bg-gray-300">
             <div className="flex flex-col justify-center items-center h-24 w-full bg-red-900/40">
