@@ -11,6 +11,7 @@ export default function Home() {
 
   // Function to switch pages
   const switchPage = (page, param1=null) => {
+    console.log(`Switching to: ${page}, with param: ${param1}`);
     setCurrentPage(page);
     if(param1) {
       setParam1(param1);

@@ -1,15 +1,16 @@
 import { useState } from 'react';
 
-export default function EntreesSelector({ onSubmit }) {
+export default function EntreesSelector({ onSubmit, numRequired }) {
     const [selectedItems, setSelectedItems] = useState([]);
 
     const items = ["Broccoli Beef", "Orange Chicken", "CHIMKEN", "CHIMKEN2"];
-
+    let numSelect = parseInt(numRequired);
+    
     const toggleSelection = (item) => {
         if (selectedItems.includes(item)) {
             setSelectedItems(selectedItems.filter(selected => selected !== item));
         } 
-        else if (selectedItems.length < 2) {
+        else if (selectedItems.length < numSelect) {
             setSelectedItems([...selectedItems, item]);
         }
     };
@@ -37,7 +38,7 @@ export default function EntreesSelector({ onSubmit }) {
             <button
                 onClick={handleSubmit}
                 className="mt-4 p-2 bg-red-500 text-black text-xl rounded hover:bg-red-600 transition-colors">
-                Submit
+                Submit 
             </button>
         </div>
   );
