@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import cartSidePanel from "../components/cartSidePanel";
 
 export default function CustomerMainMenuPage({ switchPage }) {
     return (
@@ -8,8 +8,7 @@ export default function CustomerMainMenuPage({ switchPage }) {
                 <h2>Order Total = $X.XX</h2>
             </header>
             <div className="flex flex-row h-full w-full">
-                <div className="flex flex-col justify-center items-end h-full w-2/12 bg-gray-300">
-                </div>
+                {cartSidePanel()}
                 <div className="flex flex-col justify-center items-end h-full w-full">
                     <div className="flex justify-center items-center h-1/6 w-full bg-white">
                     </div>
