@@ -21,9 +21,9 @@ export default function EntreesSelector({ onSubmit }) {
 
     const buttonClassName = (item, selectedItems) => {
         if (selectedItems.includes(item)) {
-            return "p-4 text-2xl rounded transition-colors bg-gray-400";
+            return "p-4 text-2xl text-black rounded transition-colors bg-gray-500";
         } else {
-            return "p-4 text-2xl rounded transition-colors bg-gray-300"
+            return "p-4 text-2xl text-black rounded transition-colors bg-gray-300 hover:bg-gray-400";
         }
     };
     return (
@@ -36,7 +36,7 @@ export default function EntreesSelector({ onSubmit }) {
             </div>
             <button
                 onClick={handleSubmit}
-                className="mt-4 p-2 bg-green-500 text-white text-xl rounded hover:bg-green-600 transition-colors">
+                className="mt-4 p-2 bg-red-500 text-black text-xl rounded hover:bg-red-600 transition-colors">
                 Submit
             </button>
         </div>
