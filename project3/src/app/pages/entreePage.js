@@ -1,10 +1,11 @@
 import Image from "next/image";
 import CartSidePanel from "../components/cartSidePanel";
+import OrderingHeader from "../components/orderingHeader";
 import OrderingTopPanel from "../components/orderingTopPanel";
 import MenuItemButton from "../components/menuItemButton";
-import OrderingHeader from "../components/orderingHeader";
+import EntreesSelector from "../components/entreesSelector";
 
-export default function CustomerMainMenuPage({ switchPage }) {
+export default function EntreePage({ switchPage, numRequired }) {
     return (
         <main className="flex flex-col justify-center items-center h-screen">
             <OrderingHeader/>
@@ -13,12 +14,7 @@ export default function CustomerMainMenuPage({ switchPage }) {
                 <div className="flex flex-col justify-center items-end h-full w-full">
                     <OrderingTopPanel title="Choose Your Item"/>
                     <div className="flex justify-center items-center h-5/6 w-full">
-                        <div className="grid grid-cols-2 gap-10 w-full h-full p-8">
-                            <MenuItemButton title="Bowl" switchPage={switchPage}/>
-                            <MenuItemButton title="Plate" switchPage={switchPage}/>
-                            <MenuItemButton title="Bigger Plate" switchPage={switchPage}/>
-                            <MenuItemButton title="Appetizer" switchPage={switchPage}/>
-                        </div>
+                        <EntreesSelector/>
                     </div>
                 </div>
             </div>

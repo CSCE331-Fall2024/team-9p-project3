@@ -1,0 +1,44 @@
+import { useState } from 'react';
+
+export default function EntreesSelector({ onSubmit }) {
+    const [selectedItems, setSelectedItems] = useState([]);
+
+    const items = ["Broccoli Beef", "Orange Chicken", "CHIMKEN", "CHIMKEN2"];
+
+    const toggleSelection = (item) => {
+        if (selectedItems.includes(item)) {
+            setSelectedItems(selectedItems.filter(selected => selected !== item));
+        } 
+        else if (selectedItems.length < 2) {
+            setSelectedItems([...selectedItems, item]);
+        }
+    };
+
+    const handleSubmit = () => {
+        onSubmit(selectedItems);
+        setSelectedItems([]);
+    };
+
+    const buttonClassName = (item, selectedItems) => {
+        if (selectedItems.includes(item)) {
+            return "p-4 text-2xl rounded transition-colors bg-gray-400";
+        } else {
+            return "p-4 text-2xl rounded transition-colors bg-gray-300"
+        }
+    };
+    return (
+        <div className="flex flex-col items-center w-full h-full p-8">
+            <div className="grid grid-cols-2 gap-10 w-full h-full">
+                {items.map((item) => ( //essentially javascript equivalent of   (for item : items)
+                <button key={item} className={buttonClassName(item, selectedItems)} onClick={() => toggleSelection(item)}>
+                    {item}
+                </button>))}
+            </div>
+            <button
+                onClick={handleSubmit}
+                className="mt-4 p-2 bg-green-500 text-white text-xl rounded hover:bg-green-600 transition-colors">
+                Submit
+            </button>
+        </div>
+  );
+}
