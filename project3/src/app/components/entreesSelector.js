@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function EntreesSelector({ onSubmit, numRequired, switchPage}) {
+export default function EntreesSelector({ cart, numRequired, switchPage, newCartObj}) {
     const [selectedItems, setSelectedItems] = useState([]);
 
     const items = ["Broccoli Beef", "Orange Chicken", "CHIMKEN", "CHIMKEN2"];
@@ -17,6 +17,13 @@ export default function EntreesSelector({ onSubmit, numRequired, switchPage}) {
 
     const handleSubmit = () => {
         //onSubmit(selectedItems);
+        console.log(selectedItems);
+        console.log(newCartObj.entreeItems);
+        /* selectedItems.forEach(entree => {
+            newCartObj.entreeItems.push(entree);
+        }); */
+        newCartObj.entreeItems = selectedItems;
+        cart.push(newCartObj);
         setSelectedItems([]);
         switchPage('sidePage');
     };

@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { CartObject } from '../objects/cartObject';
 
-export default function SideSelector({ onSubmit, switchPage, numRequired }) {
+export default function SideSelector({ cart, switchPage, numRequired}) {
     const [selectedItems, setSelectedItems] = useState([]);
 
     const items = ["Chow Mein", "Fried Rice", "White Rice", "Super Greens?"];
@@ -21,9 +22,9 @@ export default function SideSelector({ onSubmit, switchPage, numRequired }) {
     };
 
     const handleSubmit = () => {
-        //onSubmit(selectedItems);
+        const newCartObject = new CartObject(selectedItems.at(0));
         setSelectedItems([]);
-        switchPage('entreePage', numRequired);
+        switchPage('entreePage', numRequired, cart, newCartObject);
     };
 
     const buttonClassName = (item, selectedItems) => {

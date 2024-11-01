@@ -1,6 +1,8 @@
+import { CartObject } from "@/app/objects/cartObject";
 import Link from "next/link";
 
 export default function CustomerStartPage({ switchPage }) {
+    const newCart = new CartObject();
     return (
         <div className="flex flex-col justify-center items-center h-screen">
             <div className="flex flex-1 justify-center items-center w-full bg-red-700">
@@ -9,7 +11,7 @@ export default function CustomerStartPage({ switchPage }) {
                 </h1>
             </div>
             <button 
-              onClick={() => switchPage('customerMainMenuPage')}
+              onClick={() => switchPage('customerMainMenuPage', newCart)}
               className="flex justify-center items-center w-full h-1/3 bg-red-300 text-black text-2xl hover:bg-red-400 transition-colors"
             >
               Touch to Start Order

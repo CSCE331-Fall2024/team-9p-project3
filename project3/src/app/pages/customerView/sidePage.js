@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter, SideSelector } from "../../components";
 
-export default function SidePage({ switchPage, numEntreesRequired}) {
+export default function SidePage({ cart, switchPage, numEntreesRequired}) {
     var topPanelString = "Choose ";
     return (
         <main className="flex flex-col justify-center items-center h-screen">
             <OrderingHeader/>
             <div className="flex flex-row h-full w-full">
-                <CartSidePanel/>
+                <CartSidePanel cart={cart}/>
                 <div className="flex flex-col justify-center items-end h-full w-full">
                     <OrderingTopPanel title="Choose a side"/>
                     <div className="flex justify-center items-center h-5/6 w-full">
-                        <SideSelector onSubmit={""} switchPage={switchPage} numRequired={numEntreesRequired}/>
+                        {console.log('Type of cart in sidePage: ', typeof cart)}
+                        <SideSelector cart={cart} switchPage={switchPage} numRequired={numEntreesRequired}/>
                     </div>
                 </div>
             </div>
