@@ -5,10 +5,10 @@ export default function EntreePage({ switchPage, numRequired }) {
     var topPanelString = "Choose ";
     switch (numRequired) {
         case '1':
-            topPanelString += "1 entree."
+            topPanelString += "1 entree"
             break;
         default:
-            topPanelString += `${numRequired} entrees.`
+            topPanelString += `${numRequired} entrees`
             break;
     }
 
@@ -20,7 +20,7 @@ export default function EntreePage({ switchPage, numRequired }) {
                 <div className="flex flex-col justify-center items-end h-full w-full">
                     <OrderingTopPanel title={topPanelString}/>
                     <div className="flex justify-center items-center h-5/6 w-full">
-                        <EntreesSelector onSubmit={""} numRequired={numRequired}/>
+                        <EntreesSelector onSubmit={""} numRequired={numRequired} switchPage={switchPage}/>
                     </div>
                 </div>
             </div>

@@ -15,3 +15,4 @@ export { default as OrderingTopPanel } from "./orderingTopPanel";
 export { default as MenuItemButton } from "./menuItemButton";
 export { default as EntreesSelector } from "./entreesSelector";
 export { default as OrderingFooter } from "./orderingFooter";
+export { default as SideSelector } from "./sideSelector";

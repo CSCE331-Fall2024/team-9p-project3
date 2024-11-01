@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-export default function EntreesSelector({ onSubmit, numRequired, switchPage}) {
+export default function EntreesSelector({ onSubmit, numRequired }) {
     const [selectedItems, setSelectedItems] = useState([]);
 
-    const items = ["Broccoli Beef", "Orange Chicken", "CHIMKEN", "CHIMKEN2"];
+    const items = ["Chow Mein", "Fried Rice", "White Rice", "Super Greens?"];
     let numSelect = parseInt(numRequired);
     
     const toggleSelection = (item) => {
@@ -14,11 +14,15 @@ export default function EntreesSelector({ onSubmit, numRequired, switchPage}) {
             setSelectedItems([...selectedItems, item]);
         }
     };
+    const handleSelection = (item) => {
+        if (!selectedItems.includes(item)) {
+            setSelectedItems([item]);
+        }
+    };
 
     const handleSubmit = () => {
         //onSubmit(selectedItems);
         setSelectedItems([]);
-        switchPage('sidePage');
     };
 
     const buttonClassName = (item, selectedItems) => {
@@ -32,12 +36,12 @@ export default function EntreesSelector({ onSubmit, numRequired, switchPage}) {
         <div className="flex flex-col items-center w-full h-full p-8">
             <div className="grid grid-cols-2 gap-10 w-full h-full">
                 {items.map((item) => ( //essentially javascript equivalent of   (for item : items)
-                <button key={item} className={buttonClassName(item, selectedItems)} onClick={() => toggleSelection(item)}>
+                <button key={item} className={buttonClassName(item, selectedItems)} onClick={() => handleSelection(item)}>
                     {item}
                 </button>))}
             </div>
             <button
-                onClick={() => handleSubmit()}
+                onClick={handleSubmit}
                 className="mt-4 p-2 bg-red-500 text-black text-xl rounded hover:bg-red-600 transition-colors">
                 Submit 
             </button>
