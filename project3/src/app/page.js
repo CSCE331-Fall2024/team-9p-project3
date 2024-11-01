@@ -1,9 +1,9 @@
 "use client";
 import { useState } from 'react';
 import StartPage from './pages/start';
-import CustomerStartPage from './pages/customerStart';
-import CustomerMainMenuPage from './pages/customerMainMenu';
-import EntreePage from './pages/entreePage';
+import CustomerStartPage from './pages/customerView/customerStart';
+import CustomerMainMenuPage from './pages/customerView/customerMainMenu';
+import EntreePage from './pages/customerView/entreePage';
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState('startPage');

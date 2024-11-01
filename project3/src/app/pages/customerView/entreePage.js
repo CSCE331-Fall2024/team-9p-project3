@@ -1,10 +1,10 @@
 import Image from "next/image";
-import CartSidePanel from "../components/cartSidePanel";
-import OrderingHeader from "../components/orderingHeader";
-import OrderingTopPanel from "../components/orderingTopPanel";
-import MenuItemButton from "../components/menuItemButton";
-import EntreesSelector from "../components/entreesSelector";
-import OrderingFooter from "../components/orderingFooter";
+import CartSidePanel from "../../components/cartSidePanel";
+import OrderingHeader from "../../components/orderingHeader";
+import OrderingTopPanel from "../../components/orderingTopPanel";
+import MenuItemButton from "../../components/menuItemButton";
+import EntreesSelector from "../../components/entreesSelector";
+import OrderingFooter from "../../components/orderingFooter";
 
 export default function EntreePage({ switchPage, numRequired }) {
     var topPanelString = "Choose ";
