@@ -6,7 +6,6 @@ import CustomerMainMenuPage from './pages/customerView/customerMainMenu';
 import EntreePage from './pages/customerView/entreePage';
 import SidePage from './pages/customerView/sidePage';
 
-
 export default function Home() {
   const [currentPage, setCurrentPage] = useState('startPage');
   const [param1, setParam1] = useState('');
