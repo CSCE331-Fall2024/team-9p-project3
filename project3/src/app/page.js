@@ -30,7 +30,7 @@ export default function Home() {
       case 'entreePage':
         return <EntreePage switchPage={switchPage} numRequired={param1}/>;
       case 'sidePage' :
-        return <SidePage switchPage={switchPage}/>;
+        return <SidePage switchPage={switchPage} numEntreesRequired={param1}/>;
       default:
         return <StartPage switchPage={switchPage} />;
     }

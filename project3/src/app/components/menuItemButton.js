@@ -7,12 +7,26 @@ export default function MenuItemButton({title, switchPage}) {
         case 'Plate':
             reqEntrees = '2';
             break;
+        case 'Bigger Plate':
+            reqEntrees = '3';
+            break;
+        case 'Appetizer':
+            reqEntrees = '0';
+            break;
         default:
             break;
     }
-    
+    function handleChoice() {
+        if(reqEntrees == 0) {
+            //TODO appetizer page
+            switchPage('startPage');
+        } else {
+            switchPage('sidePage', reqEntrees);
+        }
+    }
+
     return(
-        <button onClick={() => switchPage('entreePage', reqEntrees)} className="flex justify-center items-center bg-red-300 text-black text-3xl hover:bg-red-400 transition-colors rounded">
+        <button onClick={() => handleChoice()} className="flex justify-center items-center bg-red-300 text-black text-3xl hover:bg-red-400 transition-colors rounded">
             {title}
         </button>
     );

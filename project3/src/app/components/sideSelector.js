@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function EntreesSelector({ onSubmit, numRequired }) {
+export default function SideSelector({ onSubmit, switchPage, numRequired }) {
     const [selectedItems, setSelectedItems] = useState([]);
 
     const items = ["Chow Mein", "Fried Rice", "White Rice", "Super Greens?"];
@@ -23,6 +23,7 @@ export default function EntreesSelector({ onSubmit, numRequired }) {
     const handleSubmit = () => {
         //onSubmit(selectedItems);
         setSelectedItems([]);
+        switchPage('entreePage', numRequired);
     };
 
     const buttonClassName = (item, selectedItems) => {

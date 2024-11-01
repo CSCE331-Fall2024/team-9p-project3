@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter, SideSelector } from "../../components";
 
-export default function SidePage({ switchPage}) {
+export default function SidePage({ switchPage, numEntreesRequired}) {
     var topPanelString = "Choose ";
     return (
         <main className="flex flex-col justify-center items-center h-screen">
@@ -11,7 +11,7 @@ export default function SidePage({ switchPage}) {
                 <div className="flex flex-col justify-center items-end h-full w-full">
                     <OrderingTopPanel title="Choose a side"/>
                     <div className="flex justify-center items-center h-5/6 w-full">
-                        <SideSelector onSubmit={""} switchPage={switchPage}/>
+                        <SideSelector onSubmit={""} switchPage={switchPage} numRequired={numEntreesRequired}/>
                     </div>
                 </div>
             </div>
