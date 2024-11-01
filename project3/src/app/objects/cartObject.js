@@ -19,8 +19,46 @@ export class Cart {
 }
 
 export class CartObject {
+    //price = 0;
     constructor(sideOrAppetizer, entreeItems = []) {
         this.sideOrAppetizer = sideOrAppetizer;
         this.entreeItems = entreeItems;
+    }
+    getPrice() {
+        //return this.price;
+        switch (this.entreeItems.length) {
+            case 0:
+                return 3.00;
+            case 1:
+                return 8.00;
+            case 2:
+                return 10.00;
+            case 3:
+                return 12.00;
+            default:
+                break;
+        }
+    }
+    getItemType() {
+        switch (this.entreeItems.length) {
+            case 0:
+                return 'Appetizer';
+            case 1:
+                return 'Bowl';
+            case 2:
+                return 'Plate';
+            case 3:
+                return 'Bigger Plate';
+            default:
+                break;
+        }
+    }
+    getItems() {
+        //check if it's an appetizer
+        if(this.entreeItems.length == 0) {
+            return [this.sideOrAppetizer];
+        } else {
+            return [this.sideOrAppetizer, ...this.entreeItems];
+        }
     }
 }
