@@ -1,9 +1,5 @@
 import Image from "next/image";
-import CartSidePanel from "../../components/cartSidePanel";
-import OrderingTopPanel from "../../components/orderingTopPanel";
-import MenuItemButton from "../../components/menuItemButton";
-import OrderingHeader from "../../components/orderingHeader";
-import OrderingFooter from "../../components/orderingFooter";
+import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter } from "../../components";
 
 export default function CustomerMainMenuPage({ switchPage }) {
     return (
