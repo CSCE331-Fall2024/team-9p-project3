@@ -77,8 +77,17 @@ export class CartObject {
 const teamName = "team_9p";
 const dbName = `${teamName}_db`;
 const dbConnectionString = `postgresql://csce-315-db.engr.tamu.edu/${dbName}`;
-const dbUser = "your_username"; // Replace with your actual username
-const dbPassword = "your_password"; // Replace with your actual password
+const dbUser = "YuanWang"; // p.s. I don't know whether this dbUser name is necessary. 
+const dbPassword = "bumpyice26"; 
+
+// Function to get a new database connection
+function getConnection() {
+    return new Client({
+        connectionString: dbConnectionString,
+        user: dbUser,
+        password: dbPassword,
+    });
+}
 
 async function uploadCartToDatabase(cart) {
     const client = new Client({
