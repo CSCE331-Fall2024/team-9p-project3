@@ -90,13 +90,17 @@ function getConnection() {
 }
 
 async function uploadCartToDatabase(cart) {
-    const client = new Client({
-        user: 'your_db_user',
-        host: 'your_db_host',
-        database: 'your_database',
-        password: 'your_password',
-        port: 5432,
-    });
+    const client = getConnection();
 
-    
+    try{
+        // Connect to the database; 
+        await client.connect();
+        console.log("Connected to the database.");
+
+        // Start a transaction
+        await client.query('BEGIN');
+        
+    }catch(error){
+
+    }
 }
