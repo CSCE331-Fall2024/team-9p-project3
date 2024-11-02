@@ -7,7 +7,7 @@ export default function CustomerMainMenuPage({ cart, switchPage }) {
     } */
     return (
         <main className="flex flex-col justify-center items-center h-screen">
-            <OrderingHeader cart={cart}/>
+            <OrderingHeader cart={cart} switchPage={switchPage}/>
             <div className="flex flex-row h-full w-full">
                 <CartSidePanel cart={cart}/>
                 <div className="flex flex-col justify-center items-end h-full w-full">

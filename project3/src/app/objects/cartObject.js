@@ -1,5 +1,5 @@
 // Import the client class from pg library. // using the 'pg' package for PostgreSQL
-const { Client } = require('pg');
+//const { Client } = require('pg');
 
 export class Cart {
     constructor(...CartObjects) {
@@ -74,7 +74,7 @@ export class CartObject {
 }
 
 // Define connection parameters
-const teamName = "team_9p";
+/* const teamName = "team_9p";
 const dbName = `${teamName}_db`;
 const dbConnectionString = `postgresql://csce-315-db.engr.tamu.edu/${dbName}`;
 const dbUser = "YuanWang"; // p.s. I don't know whether this dbUser name is necessary. 
@@ -104,3 +104,4 @@ async function uploadCartToDatabase(cart) {
 
     }
 }
+ */

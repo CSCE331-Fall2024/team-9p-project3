@@ -26,11 +26,6 @@ export function CartSideBlock( {cartObject} ) {
  */
 //the @param is how I get vscode to think cart is a Cart object, but it's not necessary to call functions like addItem
 export default function CartSidePanel( {cart}) {
-    //TODO: replace  this example Cart
-    /* const cartObj1 = new CartObject('Chow Mein', ['Broccoli Beef', 'Orange Chicken']);
-    const cartObj2 = new CartObject('Fried Rice', ['Broccoli Beef']);
-    const cartObj3 = new CartObject('Crab Rangoon');
-    cart = new Cart(cartObj1, cartObj2, cartObj3); */
     if(!cart) cart = new Cart();
     return (    
         <div className="flex flex-col justify-start items-center h-full w-2/12 bg-gray-300">
