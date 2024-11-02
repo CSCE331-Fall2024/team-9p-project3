@@ -116,8 +116,17 @@ async function uploadCartToDatabase(cart) {
                 [itemType, items, price]
             );
         }
-        
-    }catch(error){
 
+        // Commit the transaction after successful insertion of all items
+        await client.query('COMMIT');
+        console.log("Cart successfully uploaded to the database.");
+    }catch(error){
+        // Roll back transaction if there’s an error
+        await client.query('ROLLBACK');
+        console.error("Failed to upload cart to database:", error);
+    }finally{
+        // Close the connection
+        await client.end();
+        console.log("Disconnected from the database.");
     }
 }
