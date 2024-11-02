@@ -92,6 +92,7 @@ function getConnection() {
  * Uploads a Cart object to the database
  * @param {Cart} cart - The Cart object containing CartObjects to be uploaded
  */
+/** 
 async function uploadCartToDatabase(cart) {
     const client = getConnection();
 
