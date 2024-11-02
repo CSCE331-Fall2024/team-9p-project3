@@ -1,4 +1,4 @@
-export default function MenuItemButton({title, switchPage}) {
+export default function MenuItemButton({title, switchPage, cart}) {
     let reqEntrees = "1";
     switch (title) {
         case 'Bowl':
@@ -21,7 +21,7 @@ export default function MenuItemButton({title, switchPage}) {
             //TODO appetizer page
             switchPage('startPage');
         } else {
-            switchPage('sidePage', reqEntrees);
+            switchPage('sidePage', reqEntrees, cart);
         }
     }
 

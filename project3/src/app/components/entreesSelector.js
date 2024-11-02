@@ -16,16 +16,10 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
     };
 
     const handleSubmit = () => {
-        //onSubmit(selectedItems);
-        console.log(selectedItems);
-        console.log(newCartObj.entreeItems);
-        /* selectedItems.forEach(entree => {
-            newCartObj.entreeItems.push(entree);
-        }); */
         newCartObj.entreeItems = selectedItems;
-        cart.push(newCartObj);
+        cart.addItem(newCartObj);
         setSelectedItems([]);
-        switchPage('sidePage');
+        switchPage('startPage');
     };
 
     const buttonClassName = (item, selectedItems) => {

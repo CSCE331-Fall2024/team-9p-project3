@@ -1,8 +1,7 @@
-import { CartObject } from "@/app/objects/cartObject";
-import Link from "next/link";
+import { Cart } from "@/app/objects/cartObject";
 
 export default function CustomerStartPage({ switchPage }) {
-    const newCart = new CartObject();
+    const newCart = new Cart();
     return (
         <div className="flex flex-col justify-center items-center h-screen">
             <div className="flex flex-1 justify-center items-center w-full bg-red-700">

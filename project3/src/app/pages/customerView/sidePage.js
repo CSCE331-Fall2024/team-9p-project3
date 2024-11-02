@@ -11,7 +11,6 @@ export default function SidePage({ cart, switchPage, numEntreesRequired}) {
                 <div className="flex flex-col justify-center items-end h-full w-full">
                     <OrderingTopPanel title="Choose a side"/>
                     <div className="flex justify-center items-center h-5/6 w-full">
-                        {console.log('Type of cart in sidePage: ', typeof cart)}
                         <SideSelector cart={cart} switchPage={switchPage} numRequired={numEntreesRequired}/>
                     </div>
                 </div>

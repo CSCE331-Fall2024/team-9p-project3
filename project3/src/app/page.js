@@ -34,7 +34,7 @@ export default function Home() {
       case 'customerStartPage':
         return <CustomerStartPage switchPage={switchPage} />;
       case 'customerMainMenuPage':
-        return <CustomerMainMenuPage switchPage={switchPage} cart={param2}/>;
+        return <CustomerMainMenuPage switchPage={switchPage} cart={param1}/>;
       case 'entreePage':
         return <EntreePage switchPage={switchPage} numRequired={param1} cart={param2} newCartObj={param3}/>;
       case 'sidePage' :

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CartObject } from '../objects/cartObject';
+import { CartObject} from '../objects/cartObject';
 
 export default function SideSelector({ cart, switchPage, numRequired}) {
     const [selectedItems, setSelectedItems] = useState([]);
