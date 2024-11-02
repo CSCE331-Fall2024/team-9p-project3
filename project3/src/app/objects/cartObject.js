@@ -1,3 +1,6 @@
+// Import the client class from pg library. // using the 'pg' package for PostgreSQL
+const { Client } = require('pg');
+
 export class Cart {
     constructor(...CartObjects) {
         this.items = [];
@@ -68,4 +71,14 @@ export class CartObject {
             return [this.sideOrAppetizer, ...this.entreeItems];
         }
     }
+}
+
+async function uploadCartToDatabase(cart) {
+    const client = new Client({
+        user: 'your_db_user',
+        host: 'your_db_host',
+        database: 'your_database',
+        password: 'your_password',
+        port: 5432,
+    });
 }
