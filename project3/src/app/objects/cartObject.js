@@ -73,6 +73,13 @@ export class CartObject {
     }
 }
 
+// Define connection parameters
+const teamName = "team_9p";
+const dbName = `${teamName}_db`;
+const dbConnectionString = `postgresql://csce-315-db.engr.tamu.edu/${dbName}`;
+const dbUser = "your_username"; // Replace with your actual username
+const dbPassword = "your_password"; // Replace with your actual password
+
 async function uploadCartToDatabase(cart) {
     const client = new Client({
         user: 'your_db_user',
@@ -81,4 +88,6 @@ async function uploadCartToDatabase(cart) {
         password: 'your_password',
         port: 5432,
     });
+
+    
 }
