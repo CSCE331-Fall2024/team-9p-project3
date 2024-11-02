@@ -16,6 +16,13 @@ export class Cart {
             console.log("Tried to add a non CartObject to a Cart");
         }
     }
+    getCartPrice() {
+        let totalPrice = 0;
+        this.items.forEach(cartObject => {
+            totalPrice+=cartObject.getPrice();
+        })
+        return totalPrice;
+    }
 }
 
 export class CartObject {

@@ -5,7 +5,7 @@ export default function SidePage({ cart, switchPage, numEntreesRequired}) {
     var topPanelString = "Choose ";
     return (
         <main className="flex flex-col justify-center items-center h-screen">
-            <OrderingHeader/>
+            <OrderingHeader cart={cart}/>
             <div className="flex flex-row h-full w-full">
                 <CartSidePanel cart={cart}/>
                 <div className="flex flex-col justify-center items-end h-full w-full">
