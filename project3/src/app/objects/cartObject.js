@@ -88,7 +88,10 @@ function getConnection() {
         password: dbPassword,
     });
 }
-
+/**
+ * Uploads a Cart object to the database
+ * @param {Cart} cart - The Cart object containing CartObjects to be uploaded
+ */
 async function uploadCartToDatabase(cart) {
     const client = getConnection();
 
@@ -99,6 +102,20 @@ async function uploadCartToDatabase(cart) {
 
         // Start a transaction
         await client.query('BEGIN');
+
+        // Insert each CartObject from the Cart object into the database
+        for (const cartObject of cart.items) {
+            const itemType = cartObject.getItemType();
+            const items = cartObject.getItems().join(', '); // Convert items to a comma-separated string
+            const price = cartObject.getPrice();
+
+            // Insert into the database
+            await client.query(
+                // TODO: cart_items table, we need to create one. 
+                'INSERT INTO cart_items (item_type, items, price) VALUES ($1, $2, $3)',
+                [itemType, items, price]
+            );
+        }
         
     }catch(error){
 
