@@ -38,7 +38,7 @@ export default function CartSidePanel( {cart}) {
                 <h1 className="text-black text-2xl">Order</h1>
             </div>
             {cart.items && cart.items.map((cartObj, index) => (
-                <CartSideBlock cartObject={cartObj}/>
+                <CartSideBlock key={index} cartObject={cartObj}/>
             ))}
         </div>
     );

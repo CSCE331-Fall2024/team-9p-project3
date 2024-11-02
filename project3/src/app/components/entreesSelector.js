@@ -16,10 +16,12 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
     };
 
     const handleSubmit = () => {
+        if(selectedItems.length == numRequired) {
         newCartObj.entreeItems = selectedItems;
         cart.addItem(newCartObj);
         setSelectedItems([]);
-        switchPage('startPage');
+        switchPage('customerMainMenuPage', cart);
+        }
     };
 
     const buttonClassName = (item, selectedItems) => {
@@ -29,6 +31,14 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
             return "p-4 text-2xl text-black rounded transition-colors bg-gray-300 hover:bg-gray-400";
         }
     };
+
+    const submitButtonClass = () => {
+        if(selectedItems.length < numRequired) {
+            return "mt-4 p-2 bg-gray-500 text-black text-xl rounded hover:bg-gray-600 transition-colors";
+        } else {
+            return "mt-4 p-2 bg-red-500 text-black text-xl rounded hover:bg-red-600 transition-colors";
+        }
+    }
     return (
         <div className="flex flex-col items-center w-full h-full p-8">
             <div className="grid grid-cols-2 gap-10 w-full h-full">
@@ -39,7 +49,7 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
             </div>
             <button
                 onClick={() => handleSubmit()}
-                className="mt-4 p-2 bg-red-500 text-black text-xl rounded hover:bg-red-600 transition-colors">
+                className={submitButtonClass()}>
                 Submit 
             </button>
         </div>
