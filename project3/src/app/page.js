@@ -6,6 +6,7 @@ import CustomerMainMenuPage from './pages/customerView/customerMainMenu';
 import EntreePage from './pages/customerView/entreePage';
 import SidePage from './pages/customerView/sidePage';
 import CartPage from './pages/customerView/cartPage';
+import LoginPage from './pages/loginPage';
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState('startPage');
@@ -32,6 +33,8 @@ export default function Home() {
     switch (currentPage) {
       case 'startPage':
         return <StartPage switchPage={switchPage} />;
+      case 'loginPage':
+        return <LoginPage switchPage={switchPage} />;
       case 'customerStartPage':
         return <CustomerStartPage switchPage={switchPage} />;
       case 'customerMainMenuPage':
