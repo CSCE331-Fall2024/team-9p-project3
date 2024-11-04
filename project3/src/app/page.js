@@ -32,25 +32,7 @@ export default function Home() {
   };
 
 
-  useEffect(() => {
-    const fetchEntrees = async () => {
-        try {
-            
-            const response = await fetch('/api/entrees');
-            
-            if (!response.ok) {
-                throw new Error(`Error: ${response.status} - ${response.statusText}`);
-            }
 
-            const data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error('Fetch error:', error);
-        }
-    };
-    console.log('about to fetch');
-    fetchEntrees(); // Call the async function within useEffect
-  }, []); // Empty dependency array to run only once
 
 
   const renderPage = () => {
