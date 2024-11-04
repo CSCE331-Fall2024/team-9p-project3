@@ -15,10 +15,11 @@ async function getConn() {
     console.log('Setting up conn');
     if (!conn) {
         conn = new Client ({
-            connectionString: dbConnectionString,
             host: dbHost,
             user: dbUser,
             password: dbPassword,
+            database: dbName,
+            port: 5432,
         });        
         await conn.connect();
         console.log("Connected to the database successfully.");

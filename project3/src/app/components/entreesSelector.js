@@ -9,7 +9,7 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
         const fetchEntrees = async () => {
             try {
                 console.log('inside fetch entrees')
-                const response = await fetch('./api/entrees');
+                const response = await fetch('./pages/api/entree');
                 console.log('after await');
                 
                 if (!response.ok) {
