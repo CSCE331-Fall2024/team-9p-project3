@@ -9,9 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dgram": "^1.0.1",
+    "dns": "^0.2.2",
+    "fs": "^0.0.1-security",
+    "net": "^1.0.2",
     "next": "^15.0.1",
+    "pg": "^8.13.1",
     "react": "19.0.0-rc-69d4b800-20241021",
-    "react-dom": "19.0.0-rc-69d4b800-20241021"
+    "react-dom": "19.0.0-rc-69d4b800-20241021",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "postcss": "^8",
