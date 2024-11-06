@@ -44,7 +44,7 @@ Notes:
 
 
 Meeting Time: 11/04/24
-Members Present: All
+Members Present: Kyle, Mario, Yuan
 - Short meeting, just to regroup
 - Implemented the Login screen, not fully functional yet but gives is something to go to from the opening page
 - We also made tried to make progress on connecting an API
