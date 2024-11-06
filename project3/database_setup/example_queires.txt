@@ -1,0 +1,52 @@
+-- Special queries
+-- 1 "show all customer_orders from the week of Jan 1 2024 to Jan 7 2024"
+select COUNT(*) from customer_orders where order_time BETWEEN '2024-01-01' and '2024-01-07';
+
+-- 2 "show all orders at 3PM"
+SELECT COUNT(*),SUM(price) AS total_price FROM customer_orders WHERE EXTRACT(HOUR FROM order_time) = 15;
+
+-- 3 "show sum of top to order prices on a given day"
+SELECT SUM(price) AS sum
+FROM (
+    SELECT price
+    FROM customer_orders
+    WHERE CAST(order_time AS DATE) = '2024-09-29'
+    ORDER BY price DESC
+    LIMIT 10
+) AS sum;
+
+
+-- Others
+-- 4 "all inventory items with less than 25 units remaining"
+SELECT name FROM inventory_items WHERE stock < 25;
+
+-- 5 "show servable items that have egg in them"
+SELECT name FROM servable_items WHERE inventory @> '["Egg"]';
+
+-- 6 "show servable items that don't contain broccoli or onions"
+SELECT name  FROM servable_items WHERE NOT (inventory @> '["Broccoli"]' OR inventory @> '["Onions"]');
+
+-- 7 "show all employees that aren't managers"
+SELECT name FROM employees WHERE manager = false;
+
+-- 8 "list all weeks and their total sales"
+SELECT EXTRACT(WEEK FROM order_time) AS week_number, COUNT(*) AS order_count FROM customer_orders GROUP BY week_number ORDER BY week_number;
+
+-- 9 "select top 10 sales dates"
+SELECT 
+    CAST(order_time AS DATE) AS day,  
+    SUM(price) AS day_total
+FROM customer_orders
+GROUP BY day
+ORDER BY day_total DESC
+LIMIT 10;
+
+-- 10 "list all servable items that have onions"
+SELECT item FROM inventory_items WHERE name = 'Onions';
+
+-- 11 "given a servable item, how many inventory items does it use"
+SELECT jsonb_array_length(Inventory) AS ingredient_count FROM Servable_Items WHERE Name = 'Sweet Fire Chicken Breast';
+
+
+-- 12 "show how many orders have more than 4 items in it"
+select COUNT(*) from customer_orders where jsonb_array_length(customer_item) > 4;
