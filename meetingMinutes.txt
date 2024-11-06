@@ -71,6 +71,7 @@ Minutes:
 - Worked on API connectivity with back-end database (30 mins)
 - Discussed accomplishments from sprint 1 (2 mins)
 - Discussed sprint 2 expectations and goals (10 mins)
+- Edited, added, and removed tasks from the sprint 1 backlog (20 mins)
 
 Next SCRUM meeting: 11/11/24
 
