@@ -48,3 +48,32 @@ Members Present: Kyle, Mario, Yuan
 - Short meeting, just to regroup
 - Implemented the Login screen, not fully functional yet but gives is something to go to from the opening page
 - We also made tried to make progress on connecting an API
+
+
+
+SCRUM MEETING 1 - SPRINT 2
+Meeting Time: 11/06/24
+Members Present: All
+
+Things we got done: 
+- Created an MVP, a working product for customer view
+- This had implementation of a start screen and the basic functionality of the order screen
+- We were able to implement basic colors and a small amount of menu items
+- We were able to implement a way of tacking the price of a servable item, as well as limiting how many menu items per order
+
+Things to do by next SCRUM meeting: 
+- Create working product for manager view
+- Add functional log in screen, taking names of managers and employees from the database 
+- Add at least one manager view function, such as X-report, manage employees, manage menu items, etc.
+- Finish back-end implementation
+
+Minutes:
+- Worked on API connectivity with back-end database (30 mins)
+- Discussed accomplishments from sprint 1 (2 mins)
+- Discussed sprint 2 expectations and goals (10 mins)
+
+Next SCRUM meeting: 11/11/24
+
+
+
+
