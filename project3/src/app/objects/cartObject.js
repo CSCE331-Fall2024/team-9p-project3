@@ -26,6 +26,20 @@ export class Cart {
         })
         return totalPrice;
     }
+    removeItem(item) {
+        if(item instanceof CartObject) { 
+            console.log(item);
+            console.log(this.items);
+            const ind = this.items.indexOf(item);
+            if(ind > -1) {
+                this.items.splice(ind, 1);
+            } else {
+                console.log("When rmeoving item from cart, item not found.");
+            }
+        } else {
+            console.log("Tried to remove a non CartObject item from cart");
+        }
+    }
 }
 
 export class CartObject {
