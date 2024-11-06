@@ -27,7 +27,7 @@ export async function GET(req) {
         } catch (error) {
             // console.error("Query error:", error);
             // res.status(500).json({ error: 'Database query failed' });
-            console.error('get better');
+            console.error('get better: error');
         }
     } else {
         // res.setHeader('Allow', ['GET']);

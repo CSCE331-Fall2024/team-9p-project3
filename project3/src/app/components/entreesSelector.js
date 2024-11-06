@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 
 export default function EntreesSelector({ cart, numRequired, switchPage, newCartObj}) {
     const [selectedItems, setSelectedItems] = useState([]);
-
-
+    const [items, setItems] = useState([]);
+    
     useEffect(() => {
         const fetchEntrees = async () => {
             try {
@@ -17,19 +17,23 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
                 }
     
                 const data = await response.json();
-                console.log(data);
+                setItems(data.rows.map(row => row.name));
+                console.log(items);
+                // return data.rows;
+                // return items;
             } catch (error) {
                 console.error('Fetch error:', error);
             }
         };
         console.log('about to fetch');
-        fetchEntrees(); // Call the async function within useEffect
-        console.log('done w fetch');
-      }, []); // Empty dependency array to run only once
+        fetchEntrees()
+
+        
+      }, []); 
+      console.log(items);
 
 
-
-    const items = ["Broccoli Beef", "Orange Chicken", "CHIMKEN", "CHIMKEN2"];
+    // const items = ["Broccoli Beef", "Orange Chicken", "CHIMKEN", "CHIMKEN2"];
     let numSelect = parseInt(numRequired);
     
     const toggleSelection = (item) => {
