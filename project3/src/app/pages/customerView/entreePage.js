@@ -12,6 +12,8 @@ export default function EntreePage({cart, switchPage, numRequired, newCartObj })
             break;
     }
 
+
+
     return (
         <main className="flex flex-col justify-center items-center h-screen">
             <OrderingHeader cart={cart} switchPage={switchPage}/>

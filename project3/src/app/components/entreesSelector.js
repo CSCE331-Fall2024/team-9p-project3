@@ -1,7 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 
 export default function EntreesSelector({ cart, numRequired, switchPage, newCartObj}) {
     const [selectedItems, setSelectedItems] = useState([]);
+
+
+    useEffect(() => {
+        const fetchEntrees = async () => {
+            try {
+                console.log('inside fetch entrees')
+                const response = await fetch('./pages/api/entree');
+                console.log('after await');
+                
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} - ${response.statusText}`);
+                }
+    
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+        };
+        console.log('about to fetch');
+        fetchEntrees(); // Call the async function within useEffect
+        console.log('done w fetch');
+      }, []); // Empty dependency array to run only once
+
+
 
     const items = ["Broccoli Beef", "Orange Chicken", "CHIMKEN", "CHIMKEN2"];
     let numSelect = parseInt(numRequired);

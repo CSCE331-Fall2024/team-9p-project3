@@ -1,12 +1,14 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import StartPage from './pages/start';
 import CustomerStartPage from './pages/customerView/customerStart';
 import CustomerMainMenuPage from './pages/customerView/customerMainMenu';
 import EntreePage from './pages/customerView/entreePage';
 import SidePage from './pages/customerView/sidePage';
 import CartPage from './pages/customerView/cartPage';
-import LoginPage from './pages/loginPage';
+// import { useEffect, useState } from 'react';
+
+
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState('startPage');
@@ -28,6 +30,10 @@ export default function Home() {
       }
     }
   };
+
+
+
+
 
   const renderPage = () => {
     switch (currentPage) {
