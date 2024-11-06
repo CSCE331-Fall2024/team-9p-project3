@@ -6,7 +6,6 @@ Notes:
 - Set up Jira scrum board and begin populating items
 
 
-
 Meeting Time: 10/27/24
 Members Present: Truman, Mario, Yuan
 Notes: 
@@ -32,5 +31,20 @@ Notes:
 - In order to maintian order state, we will utilize render page to switch page rather than load a whole new site allowing us to track an order as it is created
 - Debate about sprint 1 requirements and MVP expectations from professor
 - Decided that we still were not sure but we will get as much done as we can before midngiht deadline and hope for the best
-- Sprint 1 will likley show the least progress as it involves a lot more time spent learning new technologies rather than actual development
+- Sprint 1 will likely show the least progress as it involves a lot more time spent learning new technologies rather than actual development
 
+
+Meeting Time: 11/02/24
+Members Present: All
+Notes:
+- Completed the Team Meeting Project 3 deliverable
+- Made progress on the order screen visuals, added components to keep track of price better
+- We also organized our project a lot better
+- All of us worked on slides to present, where we stated what we plan to work on in the next few days/weeks
+
+
+Meeting Time: 11/04/24
+Members Present: All
+- Short meeting, just to regroup
+- Implemented the Login screen, not fully functional yet but gives is something to go to from the opening page
+- We also made tried to make progress on connecting an API
