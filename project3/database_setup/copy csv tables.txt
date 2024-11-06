@@ -1,0 +1,2 @@
+\copy customer_item(item_ID, item_type, contains) FROM 'customer_item.csv' DELIMITER ',' CSV HEADER;
+\copy customer_orders(order_ID, customer_item, order_time, price) FROM 'customer_orders.csv' DELIMITER ',' CSV HEADER;
