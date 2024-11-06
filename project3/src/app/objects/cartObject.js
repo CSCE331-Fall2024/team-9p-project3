@@ -63,6 +63,20 @@ export class CartObject {
                 break;
         }
     }
+    getItemTypeAsNumber() {
+        switch (this.entreeItems.length) {
+            case 0:
+                return 3;
+            case 1:
+                return 0;
+            case 2:
+                return 1;
+            case 3:
+                return 2;
+            default:
+                break;
+        }
+    }
     getItems() {
         //check if it's an appetizer
         if(this.entreeItems.length == 0) {
