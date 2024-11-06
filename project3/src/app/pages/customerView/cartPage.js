@@ -13,7 +13,7 @@ export default function CartPage({ cart, switchPage }) {
                     <div className="flex flex-col h-full w-full bg-gray-100">
                             {cart.items.map((cartObject, index) => (
                                 <div key={index} className="flex flex-row h-full w-full max-h-32 bg-red-200 border-b-2 border-black">
-                                    <div className="flex flex-col justify-start items-start h-full w-1/2">
+                                    <div className="flex flex-col justify-start items-start h-full w-1/2 pl-2 pt-2">
                                         <h2 className="text-black text-3xl">{cartObject.getItemType()}</h2>
                                         {cartObject.getItems().map((entree, index2) => (
                                             <h3 key={index2} className="text-black text-xl ml-2">{entree}</h3>
@@ -29,6 +29,7 @@ export default function CartPage({ cart, switchPage }) {
                                 </div>
                                 
                             ))}
+                            <div className="flex flex-coll h-32 w-full bg-gray-300"></div>
                     </div>
                 </div>
             </div>
