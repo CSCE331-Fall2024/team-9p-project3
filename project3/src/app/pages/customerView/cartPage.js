@@ -18,6 +18,10 @@ export default function CartPage({ cart, switchPage }) {
 
     const handlePlaceOrder = (cart) => {
         //TODO: upload cart order
+        // cart parameter is a Cart class defined in objects/cartObject.js
+
+        // uncomment line below after done to transition back to start page after placing order
+        // switchPage('customerStartPage');
     }
     return (
         <main className="flex flex-col justify-center items-center h-screen">
