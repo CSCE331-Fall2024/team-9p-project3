@@ -84,7 +84,7 @@ export default function CartPage({ cart, switchPage }) {
                     </div>
                 </div>
             </div>
-            <OrderingFooter/>
+            <OrderingFooter switchPage={switchPage} cart={cart}/>
         </main>
     );
 }

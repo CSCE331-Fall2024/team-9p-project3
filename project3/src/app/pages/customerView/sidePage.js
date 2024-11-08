@@ -15,7 +15,7 @@ export default function SidePage({ cart, switchPage, numEntreesRequired}) {
                     </div>
                 </div>
             </div>
-            <OrderingFooter/>
+            <OrderingFooter switchPage={switchPage} cart={cart}/>
         </main>
     );
 }
