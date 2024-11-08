@@ -6,6 +6,7 @@ import CustomerMainMenuPage from './pages/customerView/customerMainMenu';
 import EntreePage from './pages/customerView/entreePage';
 import SidePage from './pages/customerView/sidePage';
 import CartPage from './pages/customerView/cartPage';
+import LoginPage from './pages/loginPage';
 // import { useEffect, useState } from 'react';
 
 
