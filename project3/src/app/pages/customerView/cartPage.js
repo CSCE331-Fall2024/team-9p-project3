@@ -16,13 +16,36 @@ export default function CartPage({ cart, switchPage }) {
         setCart(new Cart( ...newCart.items));
     }
 
-    const handlePlaceOrder = (cart) => {
+    const handlePlaceOrder = async(cart) => {
         //TODO: upload cart order
         // cart parameter is a Cart class defined in objects/cartObject.js
+        console.log("Outside try");
+        try {
+            console.log("Inside try");
+            const response = await fetch("./pages/api/entree", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ cartData: cart }),
+            });
+            console.log("After fetch");
 
+            if (response.ok) {
+                console.log("Fetch response OK");
+                const data = await response.json();
+                console.log("Order placed successfully", data);
+                switchPage('customerStartPage');
+            } else {
+                console.error("Failed to place order");
+            }
+        } catch (error) {
+            console.error("Error in placing order:", error);
+        }
+        console.log("End of try");
         // uncomment line below after done to transition back to start page after placing order
         // switchPage('customerStartPage');
-    }
+        }
     return (
         <main className="flex flex-col justify-center items-center h-screen">
             <OrderingHeader cart={newCart} switchPage={switchPage}/>

@@ -1,5 +1,4 @@
-/**
-const { query } = require('../dbconn'); 
+const { query } = require('./dbconn'); 
 
 
 // Manually get the max id from customer_item. Used for insertion 
@@ -93,4 +92,4 @@ async function uploadCustomerItems(cart) {
 
 
 module.exports = { uploadCartToDatabase };
-*/
+
