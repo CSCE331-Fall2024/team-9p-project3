@@ -26,7 +26,7 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
             }
         };
         console.log('about to fetch');
-        fetchEntrees()
+        fetchEntrees();
 
         
       }, []); 
