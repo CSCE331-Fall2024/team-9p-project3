@@ -6,7 +6,7 @@ export async function GET(req) {
     console.log('inside handler');
     if (req.method === 'GET') {
         try {
-            const result = await query('SELECT * FROM servable_items WHERE type = 2;'); 
+            const result = await query('SELECT * FROM servable_items WHERE type = 3;'); 
             return NextResponse.json(result);
         } catch (error) {
             // console.error("Query error:", error);

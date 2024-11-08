@@ -1,10 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CartObject} from '../objects/cartObject';
 
 export default function SideSelector({ cart, switchPage, numRequired}) {
     const [selectedItems, setSelectedItems] = useState([]);
+    const [items, setItems] = useState([]);
 
-    const items = ["Chow Mein", "Fried Rice", "White Rice", "Super Greens?"];
+    useEffect(() => {
+        const fetchSides = async () => {
+            try {
+                console.log('inside fetch entrees')
+                const response = await fetch('./pages/api/side');
+                console.log('after await');
+                
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} - ${response.statusText}`);
+                }
+    
+                const data = await response.json();
+                setItems(data.rows.map(row => row.name));
+                console.log(items);
+                // return data.rows;
+                // return items;
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+        };
+        console.log('about to fetch');
+        fetchSides();
+
+        
+      }, []); 
+      console.log(items);
+
+    // const items = ["Chow Mein", "Fried Rice", "White Rice", "Super Greens?"];
     let numSelect = parseInt(numRequired);
     
     const toggleSelection = (item) => {
