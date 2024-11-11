@@ -22,7 +22,7 @@ export default function CartPage({ cart, switchPage }) {
         console.log("Outside try");
         try {
             console.log("Inside try");
-            const response = await fetch("./pages/api/entree", {
+            const response = await fetch("./pages/api/upload", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
