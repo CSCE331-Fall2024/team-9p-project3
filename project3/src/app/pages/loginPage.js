@@ -1,7 +1,19 @@
+import { useState } from 'react';
+
 export default function LoginPage({ switchPage }) {
+
+    const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
     const handleLogin = () => {
         // You could add login logic here (authentication, form validation, etc.)
-        switchPage('customerStartPage'); // Redirects after login
+        // switchPage('managerMainPage'); // Redirects after login
+        if (username === 'manager') {
+            switchPage('managerMainPage'); // Redirects after login
+        } else {
+            setError('Invalid username');
+        }
     };
 
     return (
@@ -11,19 +23,22 @@ export default function LoginPage({ switchPage }) {
                 <input
                     type="text"
                     placeholder="Username"
-                    className="p-4 border rounded-md focus:outline-none focus:border-blue-500"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="p-4 border rounded-md focus:outline-none focus:border-red-500"
                 />
                 <input
                     type="password"
                     placeholder="Password"
-                    className="p-4 border rounded-md focus:outline-none focus:border-blue-500"
+                    className="p-4 border rounded-md focus:outline-none focus:border-red-500"
                 />
                 <button
                     onClick={handleLogin}
-                    className="p-4 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                    className="p-4 bg-red-500 text-white rounded-md hover:bg-red-600"
                 >
                     Log In
                 </button>
+                {error && <p className="text-red-500">{error}</p>}
             </div>
         </div>
     );

@@ -78,13 +78,20 @@ export default function CartPage({ cart, switchPage }) {
                                 <h1 className="text-black text-2xl font-bold w-1/6">${newCart.getCartPrice().toFixed(2)}</h1>
                                 <div className="w-1/3 h-full flex flex-row justify-center items-center gap-10">
                                     <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => switchPage('customerMainMenuPage', newCart)}>Order More</button>
-                                    <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => handlePlaceOrder(newCart)}>Place Order</button>
+                                    {newCart.items.length > 0 ? (
+                                        <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => handlePlaceOrder(newCart)}>Place Order</button>
+                                    ) : (
+                                        <button className="text-white text-xl p-2 pl-4 pr-4 bg-gray-600 rounded transition-colors">Place Order</button>
+                                    )
+                                        
+                                    }
+                                    
                                 </div>
                             </div>
                     </div>
                 </div>
             </div>
-            <OrderingFooter/>
+            <OrderingFooter switchPage={switchPage} cart={cart}/>
         </main>
     );
 }

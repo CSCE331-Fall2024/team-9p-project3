@@ -22,7 +22,7 @@ export default function CustomerMainMenuPage({ cart, switchPage }) {
                     </div>
                 </div>
             </div>
-            <OrderingFooter/>
+            <OrderingFooter switchPage={switchPage} cart={cart}/>
         </main>
     );
 }

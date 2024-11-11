@@ -7,6 +7,8 @@ import EntreePage from './pages/customerView/entreePage';
 import SidePage from './pages/customerView/sidePage';
 import CartPage from './pages/customerView/cartPage';
 import AppetizerPage from './pages/customerView/appetizerPage';
+import LoginPage from './pages/loginPage';
+import ManagerMainPage from './pages/managerView/managerMain';
 // import { useEffect, useState } from 'react';
 
 
@@ -42,6 +44,8 @@ export default function Home() {
         return <StartPage switchPage={switchPage} />;
       case 'loginPage':
         return <LoginPage switchPage={switchPage} />;
+      case 'managerMainPage':
+        return <ManagerMainPage switchPage={switchPage} />;
       case 'customerStartPage':
         return <CustomerStartPage switchPage={switchPage} />;
       case 'customerMainMenuPage':

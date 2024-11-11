@@ -21,12 +21,12 @@ export default function EntreePage({cart, switchPage, numRequired, newCartObj })
                 <CartSidePanel cart={cart}/>
                 <div className="flex flex-col justify-center items-end h-full w-full">
                     <OrderingTopPanel title={topPanelString}/>
-                    <div className="flex justify-center items-center h-5/6 w-full">
+                    <div className="flex justify-center items-center h-5/6 w-full bg-red-800">
                         <EntreesSelector cart={cart} numRequired={numRequired} switchPage={switchPage} newCartObj={newCartObj}/>
                     </div>
                 </div>
             </div>
-            <OrderingFooter/>
+            <OrderingFooter switchPage={switchPage} cart={cart}/>
         </main>
     );
 }
