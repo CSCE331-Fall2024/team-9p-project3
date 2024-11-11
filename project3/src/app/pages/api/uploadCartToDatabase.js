@@ -77,8 +77,8 @@ async function uploadCustomerItems(cart) {
             }else{
               console.log("resultObject:", resultObject.rows[0]);
               const servableID = resultObject.rows[0].item_id;
-              const servableIDString = String(servableID);
-              stringIDArray.push(servableIDString);
+              // const servableIDString = String(servableID);
+              stringIDArray.push(servableID);
             }
           }
         }
