@@ -79,18 +79,24 @@ Next SCRUM meeting: 11/11/24
 
 SCRUM MEETING 2 - SPRINT 2
 Meeting Time: 11/11/24
-Members Present:
+Members Present: Yuan, Mario, Kyle
 
 Things we got done:
-
+- Merged all of our customer order API
+- Finished the appetizer screen
+- We got set up on Vercel
+- Set up manager main screen and log in page
 
 Things to do by next SCRUM meeting:
-
+- Finish manager inventory view
+- Finish manager employees view
+- Finish manager menu items view
 
 Minutes:
+- Finished the Cart object usability and set up manager screens (45 mins)
+- Figured out plans for next SCRUM meeting and discussed accomplishments (20 mins)
 
-
-Next SCRUM meeting: 
+Next SCRUM meeting: 11/15/24
 
 
 
