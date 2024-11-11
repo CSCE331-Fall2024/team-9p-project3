@@ -19,7 +19,7 @@ export default function MenuItemButton({title, switchPage, cart}) {
     function handleChoice() {
         if(reqEntrees == 0) {
             //TODO appetizer page
-            switchPage('startPage');
+            switchPage('appetizerPage', reqEntrees, cart);
         } else {
             switchPage('sidePage', reqEntrees, cart);
         }

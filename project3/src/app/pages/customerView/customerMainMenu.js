@@ -2,9 +2,9 @@ import Image from "next/image";
 import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter } from "../../components";
 
 export default function CustomerMainMenuPage({ cart, switchPage }) {
-    /* if(cart == '' || !cart) {
-        cart = new Cart();
-    } */
+    // if(cart == '' || !cart) {
+    //     cart = new Cart();
+    // } 
     return (
         <main className="flex flex-col justify-center items-center h-screen">
             <OrderingHeader cart={cart} switchPage={switchPage}/>

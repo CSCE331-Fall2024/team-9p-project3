@@ -6,6 +6,7 @@ import CustomerMainMenuPage from './pages/customerView/customerMainMenu';
 import EntreePage from './pages/customerView/entreePage';
 import SidePage from './pages/customerView/sidePage';
 import CartPage from './pages/customerView/cartPage';
+import AppetizerPage from './pages/customerView/appetizerPage';
 // import { useEffect, useState } from 'react';
 
 
@@ -51,6 +52,8 @@ export default function Home() {
         return <SidePage switchPage={switchPage} numEntreesRequired={param1} cart={param2}/>;
       case 'cartPage' :
         return <CartPage switchPage={switchPage} cart={param1}/>;
+      case 'appetizerPage':
+        return <AppetizerPage switchPage={switchPage} cart={param2}/>;
       default:
         return <StartPage switchPage={switchPage} />;
     }
