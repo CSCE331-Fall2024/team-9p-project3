@@ -7,12 +7,10 @@ export default function LoginPage({ switchPage }) {
     const [error, setError] = useState('');
 
     const handleLogin = () => {
-        // You could add login logic here (authentication, form validation, etc.)
-        // switchPage('managerMainPage'); // Redirects after login
         if (username === 'manager') {
-            switchPage('managerMainPage'); // Redirects after login
+            switchPage('managerMainPage');
         } else {
-            setError('Invalid username');
+            setError('Invalid username or Password');
         }
     };
 

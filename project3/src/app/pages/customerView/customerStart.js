@@ -4,7 +4,7 @@ export default function CustomerStartPage({ switchPage }) {
     const newCart = new Cart();
     return (
         <div className="flex flex-col justify-center items-center h-screen">
-            <div className="flex flex-1 justify-center items-center w-full bg-white-700">
+            <div className="flex flex-1 justify-center items-center w-full bg-white">
                 <h1 className="text-8xl text-red-500">
                     Welcome to Panda Express!
                 </h1>
