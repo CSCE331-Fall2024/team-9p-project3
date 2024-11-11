@@ -9,6 +9,13 @@ import CartPage from './pages/customerView/cartPage';
 import AppetizerPage from './pages/customerView/appetizerPage';
 import LoginPage from './pages/loginPage';
 import ManagerMainPage from './pages/managerView/managerMain';
+import EmployeesPage from './pages/managerView/employees';
+import InventoryPage from './pages/managerView/inventory';
+import MenuItemsPage from './pages/managerView/menuItems';
+import OrderHistoryPage from './pages/managerView/orderHistory';
+import XReportPage from './pages/managerView/xReport';
+import ZReportPage from './pages/managerView/zReport';
+import UsageChartPage from './pages/managerView/usageChart';
 // import { useEffect, useState } from 'react';
 
 
@@ -46,6 +53,20 @@ export default function Home() {
         return <LoginPage switchPage={switchPage} />;
       case 'managerMainPage':
         return <ManagerMainPage switchPage={switchPage} />;
+      case 'employeesPage':
+        return <EmployeesPage switchPage={switchPage} />;
+      case 'inventoryPage':
+        return <InventoryPage switchPage={switchPage} />;
+      case 'menuItemsPage':
+        return <MenuItemsPage switchPage={switchPage} />;
+      case 'orderHistoryPage':
+        return <OrderHistoryPage switchPage={switchPage} />;
+      case 'xReportPage':
+        return <XReportPage switchPage={switchPage} />;
+      case 'zReportPage':
+        return <ZReportPage switchPage={switchPage} />;
+      case 'usageChartPage':
+        return <UsageChartPage switchPage={switchPage} />;
       case 'customerStartPage':
         return <CustomerStartPage switchPage={switchPage} />;
       case 'customerMainMenuPage':
