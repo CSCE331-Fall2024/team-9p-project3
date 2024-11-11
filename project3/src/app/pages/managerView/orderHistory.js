@@ -1,6 +1,6 @@
 export default function OrderHistoryPage({ switchPage }) {
     const handleGoBack = () => {
-        switchPage('loginPage'); // Redirects back to the login page
+        switchPage('managerMainPage'); // Redirects back to the login page
     };
 
     return (
@@ -10,7 +10,7 @@ export default function OrderHistoryPage({ switchPage }) {
                 onClick={handleGoBack}
                 className="p-4 bg-red-500 text-white rounded-md hover:bg-red-600"
             >
-                Go Back to Login
+                Back
             </button>
         </div>
     );
