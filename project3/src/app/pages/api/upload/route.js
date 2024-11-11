@@ -22,7 +22,7 @@
 //     }
 // }
 
-import { uploadCustomerItems } from "@/app/pages/api/uploadCartToDatabase";
+import { uploadCustomerItems, uploadCartToDatabase } from "@/app/pages/api/uploadCartToDatabase";
 import { Cart } from "@/app/objects/cartObject";
 import { CartObject } from "@/app/objects/cartObject";
 
@@ -35,17 +35,42 @@ export async function POST(req) {
         if (!cartData || !cartData.items) {
             throw new Error("Invalid cart data");
         }
-        console.log("cartData.items: ", cartData.items); 
-        const cartobject = new CartObject(cartData.items[0].sideOrAppetizer, cartData.items[0].entreeItems);
-        console.log("Created cartobject instance:", cartobject);
+        console.log("cartData.items: ", cartData.items);
+        
+        // Array to collect the results of each upload
+        const results = [];
+        const allgenerateIds = [];
+        const allCartObject = []; 
 
-        const cart = new Cart(cartobject);
-        console.log("Created cart instance:", cart);
+        for(const cartDataItem of cartData.items){
+            const cartobject = new CartObject(cartDataItem.sideOrAppetizer, cartDataItem.entreeItems);
+            console.log("Created cartobject instance:", cartobject);
 
-        const result = await uploadCustomerItems(cart);
-        console.log("Database result:", result);
+            allCartObject.push(cartobject);
 
-        return new Response(JSON.stringify({ success: true, result }), {
+            const cart = new Cart(cartobject);
+            console.log("Created cart instance:", cart);
+
+            const result = await uploadCustomerItems(cart);
+            console.log("Database result:", result);
+            
+            results.push(result);
+
+            for(const generateIds of result){
+                allgenerateIds.push(generateIds);
+            }
+        }
+
+        console.log("Database results: ", results); 
+        console.log("All Generate Ids results: ", allgenerateIds); 
+        console.log("All Cart Objects", allCartObject);
+
+
+        const cartTotal = new Cart(...allCartObject);
+        const cartresult = await uploadCartToDatabase(cartTotal, allgenerateIds);
+
+
+        return new Response(JSON.stringify({ success: true, results }), {
             status: 200,
             headers: { "Content-Type": "application/json" },
         });

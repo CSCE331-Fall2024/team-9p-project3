@@ -82,7 +82,6 @@ async function uploadCustomerItems(cart) {
             }
           }
         }
-        console.log("", );
         // Insert the item with the manually calculated cart_id
         console.log("nextId: ", nextId);
         const validStringIDArray = JSON.stringify(stringIDArray);
@@ -97,9 +96,6 @@ async function uploadCustomerItems(cart) {
         // Push the manually assigned cart_id into the array
         generatedIds.push(nextId);
       }
-
-      uploadCartToDatabase(cart,generatedIds);
-      
       console.log('Manually generated cart item IDs:', generatedIds);
       return generatedIds; // Return the array of generated IDs
     } catch (error) {
@@ -110,5 +106,5 @@ async function uploadCustomerItems(cart) {
 
 
 
-module.exports = { uploadCustomerItems };
+module.exports = { uploadCustomerItems, uploadCartToDatabase };
 
