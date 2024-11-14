@@ -10,20 +10,17 @@ export default function LoginPage({ switchPage }) {
     const handleLogin = async () => {
 
         const result = await query('SELECT COUNT(*) FROM employees WHERE name = $1', [username]);
-        // if (parseInt(result.rows[0].count, 10) > 0) {
-        //     switchPage('managerMainPage');
-        // } else {
-        //     setError('Invalid username or Password');
-        // }
-
-
-
-
-        if (username === 'manager') {
+        if (parseInt(result.rows[0].count, 10) > 0) {
             switchPage('managerMainPage');
         } else {
             setError('Invalid username or Password');
         }
+
+        // if (username === 'manager') {
+        //     switchPage('managerMainPage');
+        // } else {
+        //     setError('Invalid username or Password');
+        // }
     };
 
     return (
