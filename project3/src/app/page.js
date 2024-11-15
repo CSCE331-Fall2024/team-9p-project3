@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
+//import Head from 'next/head';
 import StartPage from './pages/start';
 import CustomerStartPage from './pages/customerView/customerStart';
 import CustomerMainMenuPage from './pages/customerView/customerMainMenu';
@@ -26,6 +27,24 @@ export default function Home() {
   const [param2, setParam2] = useState('');
   const [param3, setParam3] = useState('');
 
+  /* useEffect(() => {
+    // Define the Google Translate init function
+    window.googleTranslateElementInit = function () {
+      new window.google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    };
+
+    // Load Google Translate script dynamically
+    const script = document.createElement('script');
+    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Clean up script when component unmounts if needed
+      document.body.removeChild(script);
+    };
+  }, []); */
+
   // Function to switch pages
   const switchPage = (page, param1=null, param2=null, param3=null) => {
     console.log(`Switching to: ${page}, with param1: ${param1}, param2: ${param2}, param3: ${param3}.`);
@@ -40,10 +59,6 @@ export default function Home() {
       }
     }
   };
-
-
-
-
 
   const renderPage = () => {
     switch (currentPage) {
@@ -85,8 +100,10 @@ export default function Home() {
   };
   return (
     <div>
+      {/* <Head></Head> */}
       <main>
         {/* <h1>{SidePage.name} and {SidePage.name.charAt(0).toLowerCase() + SidePage.name.slice(1)}</h1> */}
+        {/*<div id="google_translate_element"></div>*/}
         {renderPage()}
       </main>
     </div>

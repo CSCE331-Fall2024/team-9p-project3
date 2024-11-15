@@ -18,4 +18,20 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  top: 0px !important;
+}
+
+#google_translate_element .goog-te-gadget {
+  display: inline-flex !important;
+  align-items: center;
+  padding: 0.5rem;
+  min-width: 400px;
+  gap: 10px;
+}
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none !important;
+}
+.VIpgJd-ZVi9od-ORHb {
+  display: none !important;
 }
