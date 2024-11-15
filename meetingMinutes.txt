@@ -100,4 +100,22 @@ Next SCRUM meeting: 11/15/24
 
 
 
+SCRUM MEETING 3 - SPRINT 2
+Meeting Time: 11/15/24
+Members Present: Truman, Kyle, Mario
 
+Things we got done:
+- Updated the Login API functionality
+- Got a better understanding of the overall API usage
+- Started back end functionality for the employee manager view
+- Made a lot of progress on weather and translate API
+
+Things to do by next SCRUM meeting:
+- Finish manager inventory view
+- Finish manager employees view
+- Finish manager menu items view
+
+Minutes: 
+- Discussed what we have done since the last scrum meeting (5 mins)
+- Discussed goals to accomplish by the end of the sprint (7 mins)
+- Updated Jira tasks (2 mins)
