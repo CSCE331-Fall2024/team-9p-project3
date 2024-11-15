@@ -6,8 +6,8 @@ export async function GET(req) {
     console.log('inside handler');
     if (req.method === 'GET') {
         try {
-            const result = await query('SELECT * FROM employees;'); 
-            return NextResponse.json(result);
+            const result = await query("SELECT * FROM employees WHERE manager = 'f'"); 
+            return NextResponse.json(result.rows);
         } catch (error) {
             // console.error("Query error:", error);
             // res.status(500).json({ error: 'Database query failed' });
