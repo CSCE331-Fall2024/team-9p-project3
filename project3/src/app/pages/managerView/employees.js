@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import {EmployeeRow} from "../../components";
 
 export default function EmployeesPage({ switchPage }) {
     const [employees, setEmployees] = useState([]); // State to store employees
@@ -8,6 +9,7 @@ export default function EmployeesPage({ switchPage }) {
     const handleGoBack = () => {
         switchPage('managerMainPage'); // Redirects back to the manager main page
     };
+
 
     useEffect(() => {
         // Fetch data from the API when the component loads
@@ -19,11 +21,13 @@ export default function EmployeesPage({ switchPage }) {
                 }
                 const data = await res.json();
                 setEmployees(data); // Update the employees state
+
             } catch (err) {
                 console.error('Error:', err);
                 setError(err.message);
             } finally {
                 setLoading(false); // Set loading to false after the request is complete
+
             }
         };
 
@@ -48,15 +52,12 @@ export default function EmployeesPage({ switchPage }) {
                             <th className="border border-gray-400 px-4 py-2">ID</th>
                             <th className="border border-gray-400 px-4 py-2">Name</th>
                             <th className="border border-gray-400 px-4 py-2">Manager Status</th>
+                            <th className="border border-gray-400 px-4 py-2">Save Change</th>
                         </tr>
                     </thead>
                     <tbody>
                         {employees.map((employee) => (
-                            <tr key={employee.employee_id}>
-                                <td className="border border-gray-400 px-4 py-2">{employee.employee_id}</td>
-                                <td className="border border-gray-400 px-4 py-2">{employee.name}</td>
-                                <td className="border border-gray-400 px-4 py-2">{employee.name}</td>
-                            </tr>
+                                <EmployeeRow employee={employee}></EmployeeRow>
                         ))}
                     </tbody>
                 </table>
