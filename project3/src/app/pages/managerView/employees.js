@@ -19,11 +19,18 @@ export default function EmployeesPage({ switchPage }) {
                 }
                 const data = await res.json();
                 setEmployees(data); // Update the employees state
+                console.log(data);
+                employees.map((employee) => (
+                    console.log(employee)
+                )
+                );
+
             } catch (err) {
                 console.error('Error:', err);
                 setError(err.message);
             } finally {
                 setLoading(false); // Set loading to false after the request is complete
+
             }
         };
 
@@ -48,14 +55,16 @@ export default function EmployeesPage({ switchPage }) {
                             <th className="border border-gray-400 px-4 py-2">ID</th>
                             <th className="border border-gray-400 px-4 py-2">Name</th>
                             <th className="border border-gray-400 px-4 py-2">Manager Status</th>
+                            <th className="border border-gray-400 px-4 py-2">Save Change</th>
                         </tr>
                     </thead>
                     <tbody>
                         {employees.map((employee) => (
                             <tr key={employee.employee_id}>
-                                <td className="border border-gray-400 px-4 py-2">{employee.employee_id}</td>
-                                <td className="border border-gray-400 px-4 py-2">{employee.name}</td>
-                                <td className="border border-gray-400 px-4 py-2">{employee.name}</td>
+                                <td className="border border-gray-400 px-4 py-2"><input type='text' value={employee.employee_id}></input></td>
+                                <td className="border border-gray-400 px-4 py-2"><input type='text' value={employee.name}></input></td>
+                                <td className="border border-gray-400 px-4 py-2"><input type='text' value={employee.manager.toString()}></input></td>
+                                <td className="border border-gray-400 px-4 py-2"><button>&#x2705;</button></td>
                             </tr>
                         ))}
                     </tbody>
