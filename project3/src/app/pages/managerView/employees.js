@@ -47,6 +47,7 @@ export default function EmployeesPage({ switchPage }) {
                         <tr>
                             <th className="border border-gray-400 px-4 py-2">ID</th>
                             <th className="border border-gray-400 px-4 py-2">Name</th>
+                            <th className="border border-gray-400 px-4 py-2">Manager Status</th>
                         </tr>
                     </thead>
                     <tbody>
