@@ -6,7 +6,7 @@ export async function GET(req) {
     console.log('inside handler');
     if (req.method === 'GET') {
         try {
-            const result = await query("SELECT * FROM employees WHERE manager = 'f'"); 
+            const result = await query("SELECT * FROM employees"); 
             return NextResponse.json(result.rows);
         } catch (error) {
             console.error('get better: error');

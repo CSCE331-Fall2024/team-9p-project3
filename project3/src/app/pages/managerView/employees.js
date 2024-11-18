@@ -55,6 +55,7 @@ export default function EmployeesPage({ switchPage }) {
                             <tr key={employee.employee_id}>
                                 <td className="border border-gray-400 px-4 py-2">{employee.employee_id}</td>
                                 <td className="border border-gray-400 px-4 py-2">{employee.name}</td>
+                                <td className="border border-gray-400 px-4 py-2">{employee.name}</td>
                             </tr>
                         ))}
                     </tbody>
