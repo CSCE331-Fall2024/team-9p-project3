@@ -17,3 +17,4 @@ export { default as EntreesSelector } from "./entreesSelector";
 export { default as OrderingFooter } from "./orderingFooter";
 export { default as SideSelector } from "./sideSelector";
 export { default as AppetizerSelector } from "./AppetizerSelector";
+export { default as EmployeeRow} from "./employeeRow"
