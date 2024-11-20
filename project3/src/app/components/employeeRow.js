@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
-function EmployeeRow({ employee }) {
+function EmployeeRow({ employee, setEmployees }) {
     const prevID = employee.employee_id;
     const [employeeId, setEmployeeId] = useState(employee.employee_id);
     const [name, setName] = useState(employee.name);
     const [manager, setManager] = useState(employee.manager.toString());
 
     async function sendData(prevID, newID, name, isManager) {
-        console.log(prevID)
         const response = await fetch("./pages/api/sendemployee", {
             method: "POST",
             headers: {
@@ -26,6 +25,20 @@ function EmployeeRow({ employee }) {
         else {
             console.log("Error: ", response.status);
         }
+
+    }
+
+    async function deleteEntry(id) {
+        const response = await fetch ('./pages/api/employeedelete', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body:JSON.stringify({
+                "id":id
+            })
+        })
+        setEmployees((prevEmployees) => prevEmployees.filter((emp) => emp.employee_id !== id));
 
     }
 
@@ -54,6 +67,9 @@ function EmployeeRow({ employee }) {
             </td>
             <td className="border border-gray-400 px-4 py-2">
                 <button onClick={() => sendData(prevID, employeeId, name, manager)}>&#x2705;</button>
+            </td>
+            <td className="border border-gray-400 px-4 py-2">
+                <button onClick={() => deleteEntry(employeeId)}>&#10060;</button>
             </td>
         </tr>
     );
