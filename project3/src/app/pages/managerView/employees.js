@@ -15,7 +15,7 @@ export default function EmployeesPage({ switchPage }) {
 
     async function addNew() {
         try {
-            const response = await fetch("./pages/api/addEmployee", {
+            const response = await fetch("./pages/api/employee/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export default function EmployeesPage({ switchPage }) {
     const fetchData = async () => {
         try {
             setLoading(true)
-            const res = await fetch('./pages/api/getemployee');
+            const res = await fetch('./pages/api/employee/read');
             if (!res.ok) {
                 throw new Error('Failed to fetch employees');
             }
@@ -87,11 +87,11 @@ export default function EmployeesPage({ switchPage }) {
                     </thead>
                     <tbody>
                         {employees.map((employee) => (
-                                <EmployeeRow employee={employee} fetchData={fetchData}></EmployeeRow>
+                                <EmployeeRow key={employee.employee_id} employee={employee} fetchData={fetchData}></EmployeeRow>
                         ))}
                         
                         
-                        <tr>
+                        <tr key={-1}>
                             <td className="border border-gray-400 px-4 py-2">
                                 <input
                                     type="text"

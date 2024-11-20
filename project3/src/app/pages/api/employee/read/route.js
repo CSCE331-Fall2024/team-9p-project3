@@ -1,4 +1,4 @@
-import { query } from '../dbconn';
+import { query } from '../../dbconn';
 import { NextRequest, NextResponse } from "next/server";
 
 

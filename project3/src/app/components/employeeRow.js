@@ -7,7 +7,7 @@ function EmployeeRow({ employee, fetchData }) {
     const [manager, setManager] = useState(employee.manager.toString());
 
     async function sendData(prevID, newID, name, isManager) {
-        const response = await fetch("./pages/api/sendemployee", {
+        const response = await fetch("./pages/api/employee/update", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -29,7 +29,7 @@ function EmployeeRow({ employee, fetchData }) {
     }
 
     async function deleteEntry(id) {
-        const response = await fetch ('./pages/api/employeedelete', {
+        const response = await fetch ('./pages/api/employee/delete', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -43,7 +43,7 @@ function EmployeeRow({ employee, fetchData }) {
     }
 
     return (
-        <tr key={employee.employee_id}>
+        <tr>
             <td className="border border-gray-400 px-4 py-2">
                 <input
                     type="text"

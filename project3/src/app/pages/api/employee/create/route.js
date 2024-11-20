@@ -1,4 +1,4 @@
-const { query } = require('../dbconn'); 
+const { query } = require('../../dbconn'); 
 
 export async function POST(req) {
     try {
