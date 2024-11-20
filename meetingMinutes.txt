@@ -59,7 +59,7 @@ Things we got done:
 - Created an MVP, a working product for customer view
 - This had implementation of a start screen and the basic functionality of the order screen
 - We were able to implement basic colors and a small amount of menu items
-- We were able to implement a way of tacking the price of a servable item, as well as limiting how many menu items per order
+- We were able to implement a way of tracking the price of a servable item, as well as limiting how many menu items per order
 
 Things to do by next SCRUM meeting: 
 - Create working product for manager view
@@ -119,3 +119,30 @@ Minutes:
 - Discussed what we have done since the last scrum meeting (5 mins)
 - Discussed goals to accomplish by the end of the sprint (7 mins)
 - Updated Jira tasks (2 mins)
+
+Next SCRUM meeting: 11/20/24
+
+
+
+SCRUM MEETING 1 - SPRINT 3
+Meeting Time: 11/20/24
+Members Present: Mario, Kyle, Yuan
+
+Things we got done:
+- Implemented login functionality
+- Finished cart object implementation
+- Finished translate and weather API
+- Created manager main menu and manager employee view
+
+Things to do by next SCRUM meeting:
+- Add menu items view and inventory view
+- Create employee view
+- Create google authentication API for login
+- Begin improving aesthetics of current front end
+
+Minutes:
+- Discussed employee delete function (15 mins)
+- Created new sprint with jira tasks (3 mins)
+- Discussed previous accomplishments and goals for next meeting (5 mins)
+
+Next SCRUM meeting: 11/25/24
