@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function EmployeeRow({ employee, setEmployees }) {
+function EmployeeRow({ employee, fetchData }) {
     const prevID = employee.employee_id;
     const [employeeId, setEmployeeId] = useState(employee.employee_id);
     const [name, setName] = useState(employee.name);
@@ -37,8 +37,8 @@ function EmployeeRow({ employee, setEmployees }) {
             body:JSON.stringify({
                 "id":id
             })
-        })
-        setEmployees((prevEmployees) => prevEmployees.filter((emp) => emp.employee_id !== id));
+        });
+        fetchData();
 
     }
 

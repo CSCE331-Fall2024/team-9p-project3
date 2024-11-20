@@ -5,32 +5,61 @@ export default function EmployeesPage({ switchPage }) {
     const [employees, setEmployees] = useState([]); // State to store employees
     const [loading, setLoading] = useState(true); // State to track loading status
     const [error, setError] = useState(null); // State to track errors
+    const [employeeId, setEmployeeId] = useState('');
+    const [name, setName] = useState('');
+    const [manager, setManager] = useState('');
 
     const handleGoBack = () => {
         switchPage('managerMainPage'); // Redirects back to the manager main page
     };
 
+    async function addNew() {
+        try {
+            const response = await fetch("./pages/api/addEmployee", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify({
+                    "newID":employeeId,
+                    "name":name,
+                    "isManager":manager
+                })
+            });
+            if(response.ok) {
+                console.log("Add Successful");
+                fetchData();
+            }
+            else {
+                console.log("Error: ", response.status);
+            }
+        }
+        catch (error) {
+            console.error('Error: ', error);
+        }
+    }
+
+
+    const fetchData = async () => {
+        try {
+            setLoading(true)
+            const res = await fetch('./pages/api/getemployee');
+            if (!res.ok) {
+                throw new Error('Failed to fetch employees');
+            }
+            const data = await res.json();
+            setEmployees(data); // Update the employees state
+
+        } catch (err) {
+            console.error('Error:', err);
+            setError(err.message);
+        } finally {
+            setLoading(false); // Set loading to false after the request is complete
+
+        }
+    };
 
     useEffect(() => {
-        // Fetch data from the API when the component loads
-        const fetchData = async () => {
-            try {
-                const res = await fetch('./pages/api/getemployee');
-                if (!res.ok) {
-                    throw new Error('Failed to fetch employees');
-                }
-                const data = await res.json();
-                setEmployees(data); // Update the employees state
-
-            } catch (err) {
-                console.error('Error:', err);
-                setError(err.message);
-            } finally {
-                setLoading(false); // Set loading to false after the request is complete
-
-            }
-        };
-
         fetchData();
     }, []);
 
@@ -58,8 +87,41 @@ export default function EmployeesPage({ switchPage }) {
                     </thead>
                     <tbody>
                         {employees.map((employee) => (
-                                <EmployeeRow employee={employee} setEmployees={setEmployees}></EmployeeRow>
+                                <EmployeeRow employee={employee} fetchData={fetchData}></EmployeeRow>
                         ))}
+                        
+                        
+                        <tr>
+                            <td className="border border-gray-400 px-4 py-2">
+                                <input
+                                    type="text"
+                                    className='new'
+                                    onChange={(e) => setEmployeeId(e.target.value)}
+                                />
+                            </td>
+                            <td className="border border-gray-400 px-4 py-2">
+                                <input
+                                    type="text"
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                            </td>
+                            <td className="border border-gray-400 px-4 py-2">
+                                <input
+                                    type="text"
+                                    onChange={(e) => setManager(e.target.value)}
+                                />
+                            </td>
+                            <td className="border border-gray-400 px-4 py-2">
+                                <button onClick={() => addNew(employeeId, name, manager)}>&#x2705;</button>
+                            </td>
+                            <td className="border border-gray-400 px-4 py-2">
+                                <button>&#10060;</button>
+                            </td>
+                        </tr>
+
+
+
+
                     </tbody>
                 </table>
             ) : (
@@ -74,3 +136,5 @@ export default function EmployeesPage({ switchPage }) {
         </div>
     );
 }
+
+export {fetchData};
