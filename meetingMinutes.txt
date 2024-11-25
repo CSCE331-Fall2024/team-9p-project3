@@ -146,3 +146,24 @@ Minutes:
 - Discussed previous accomplishments and goals for next meeting (5 mins)
 
 Next SCRUM meeting: 11/25/24
+
+
+
+SCRUM MEETING 2 - SPRINT 3
+Meeting Time: 11/25/24
+Members Present: Mario, Truman, Yuan
+
+Things we got done:
+- Implemented the backend for viewing and editing inventory items, menu items, and employees
+- Started work on improving frontend
+- Started work on accomodations
+
+Things to do by next SCRUM meeting:
+- Finalize frontend for customer view
+- Begin work on all other manager view options, including, x report, z report, usage chart, and order history
+
+Minutes:
+- Edited status of Jira tasks (5 mins)
+- planned what to do over the break and before the next SCRUM meeting (12 mins)
+
+Next SCRUM meeting: 12/02/24
