@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { CartObject} from '../objects/cartObject';
 
-export default function SideSelector({ cart, switchPage, numRequired}) {
+export default function SideSelector({ cart, switchPage, numRequired, employee=false}) {
     const [selectedItems, setSelectedItems] = useState([]);
     const [items, setItems] = useState([]);
 
@@ -52,7 +52,11 @@ export default function SideSelector({ cart, switchPage, numRequired}) {
     const handleSubmit = () => {
         const newCartObject = new CartObject(selectedItems.at(0));
         setSelectedItems([]);
-        switchPage('entreePage', numRequired, cart, newCartObject);
+        if(employee) {
+            switchPage('employeeEntreePage', numRequired, cart, newCartObject);
+        } else {
+            switchPage('entreePage', numRequired, cart, newCartObject);
+        }
     };
 
     const buttonClassName = (item, selectedItems) => {

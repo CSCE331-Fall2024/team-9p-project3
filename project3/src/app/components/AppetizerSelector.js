@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { CartObject} from '../objects/cartObject';
 
-export default function AppetizerSelector({ cart, switchPage, numRequired}) {
+export default function AppetizerSelector({ cart, switchPage, numRequired, employee=false}) {
     const [selectedItems, setSelectedItems] = useState([]);
     const [items, setItems] = useState([]);
 
@@ -52,7 +52,11 @@ export default function AppetizerSelector({ cart, switchPage, numRequired}) {
         const newCartObject = new CartObject(selectedItems.at(0));
         cart.addItem(newCartObject)
         setSelectedItems([]);
-        switchPage('customerMainMenuPage', cart);
+        if(employee) {
+            switchPage('employeeMainPage', cart);
+        } else {
+            switchPage('customerMainMenuPage', cart);
+        }
     };
 
     const buttonClassName = (item, selectedItems) => {

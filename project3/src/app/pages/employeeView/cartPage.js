@@ -1,24 +1,14 @@
-import { useState } from "react";
+/* import { useState } from "react";
 import Image from "next/image";
 import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter } from "../../components";
 import { Cart } from "@/app/objects/cartObject";
 
-export default function CartPage({ cart, switchPage, employee=false }) {
-    console.log("Starting Cartpage. Employee = ", employee);
+export default function EmployeeCartPage({ cart, switchPage }) {
     const [newCart, setCart] = useState(cart);
 
     const handleRemoveItem = (cartObject) => {
         newCart.removeItem(cartObject);
         setCart(new Cart( ...newCart.items));
-    }
-
-    const handleOrderMore = (cart) => {
-        if(employee) {
-            switchPage('employeeMainMenuPage', cart);
-        } else {
-            switchPage('customerMainMenuPage', cart);
-        }
-        
     }
 
     const copyCartItem = (cartObject) => {
@@ -45,12 +35,7 @@ export default function CartPage({ cart, switchPage, employee=false }) {
                 console.log("Fetch response OK");
                 const data = await response.json();
                 console.log("Order placed successfully", data);
-                if(employee) {
-                    const newCart = new Cart();
-                    switchPage('employeeMainMenuPage', newCart);
-                } else {
-                    switchPage('customerStartPage');
-                }
+                switchPage('customerStartPage');
             } else {
                 console.error("Failed to place order");
             }
@@ -63,8 +48,7 @@ export default function CartPage({ cart, switchPage, employee=false }) {
         }
     return (
         <main className="flex flex-col justify-center items-center h-screen">
-            <OrderingHeader cart={newCart} switchPage={switchPage} employee={employee}/>
-            <h1>EMPLOYEE VIEW = {employee.toString()}</h1>
+            <OrderingHeader cart={newCart} switchPage={switchPage}/>
             <div className="flex flex-row h-full w-full">
                 <div className="flex flex-col justify-center items-end h-full w-full">
                     <div className="flex justify-center items-center w-full bg-white border-b-2 border-black">
@@ -93,7 +77,7 @@ export default function CartPage({ cart, switchPage, employee=false }) {
                                 <h1 className="text-black text-2xl font-bold w-1/2 pl-2">Total</h1>
                                 <h1 className="text-black text-2xl font-bold w-1/6">${newCart.getCartPrice().toFixed(2)}</h1>
                                 <div className="w-1/3 h-full flex flex-row justify-center items-center gap-10">
-                                    <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => handleOrderMore(newCart)}>Order More</button>
+                                    <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => switchPage('customerMainMenuPage', newCart)}>Order More</button>
                                     {newCart.items.length > 0 ? (
                                         <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => handlePlaceOrder(newCart)}>Place Order</button>
                                     ) : (
@@ -107,7 +91,8 @@ export default function CartPage({ cart, switchPage, employee=false }) {
                     </div>
                 </div>
             </div>
-            <OrderingFooter switchPage={switchPage} cart={cart} employee={employee}/>
+            <OrderingFooter switchPage={switchPage} cart={cart}/>
         </main>
     );
 }
+ */

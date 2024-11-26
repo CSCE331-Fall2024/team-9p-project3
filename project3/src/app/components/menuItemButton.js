@@ -1,4 +1,4 @@
-export default function MenuItemButton({title, switchPage, cart}) {
+export default function MenuItemButton({title, switchPage, cart, employee=false}) {
     let reqEntrees = "1";
     switch (title) {
         case 'Bowl':
@@ -18,10 +18,17 @@ export default function MenuItemButton({title, switchPage, cart}) {
     }
     function handleChoice() {
         if(reqEntrees == 0) {
-            //TODO appetizer page
-            switchPage('appetizerPage', reqEntrees, cart);
+            if(employee) {
+                switchPage('employeeAppetizerPage', reqEntrees, cart);
+            } else {
+                switchPage('appetizerPage', reqEntrees, cart);
+            }
         } else {
-            switchPage('sidePage', reqEntrees, cart);
+            if(employee) {
+                switchPage('employeeSidePage', reqEntrees, cart);
+            } else {
+                switchPage('sidePage', reqEntrees, cart);
+            }
         }
     }
 
