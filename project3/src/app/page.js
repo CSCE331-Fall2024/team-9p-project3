@@ -17,6 +17,11 @@ import OrderHistoryPage from './pages/managerView/orderHistory';
 import XReportPage from './pages/managerView/xReport';
 import ZReportPage from './pages/managerView/zReport';
 import UsageChartPage from './pages/managerView/usageChart';
+import EmployeeMainMenuPage from './pages/employeeView/mainMenu';
+import EmployeeAppetizerPage from './pages/employeeView/appetizerPage';
+import EmployeeCartPage from './pages/employeeView/cartPage';
+import EmployeeEntreePage from './pages/employeeView/entreePage';
+import EmployeeSidePage from './pages/employeeView/sidePage';
 // import { useEffect, useState } from 'react';
 
 
@@ -26,24 +31,6 @@ export default function Home() {
   const [param1, setParam1] = useState('');
   const [param2, setParam2] = useState('');
   const [param3, setParam3] = useState('');
-
-  /* useEffect(() => {
-    // Define the Google Translate init function
-    window.googleTranslateElementInit = function () {
-      new window.google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-    };
-
-    // Load Google Translate script dynamically
-    const script = document.createElement('script');
-    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      // Clean up script when component unmounts if needed
-      document.body.removeChild(script);
-    };
-  }, []); */
 
   // Function to switch pages
   const switchPage = (page, param1=null, param2=null, param3=null) => {
@@ -55,9 +42,9 @@ export default function Home() {
         setParam2(param2);
         if(param3) {
           setParam3(param3);
-        }
-      }
-    }
+        } else setParam3('');
+      } else setParam2('');
+    } else setParam1('');
   };
 
   const renderPage = () => {
@@ -91,9 +78,19 @@ export default function Home() {
       case 'sidePage' :
         return <SidePage switchPage={switchPage} numEntreesRequired={param1} cart={param2}/>;
       case 'cartPage' :
-        return <CartPage switchPage={switchPage} cart={param1}/>;
+        return <CartPage switchPage={switchPage} cart={param1} employee={param2}/>;
       case 'appetizerPage':
         return <AppetizerPage switchPage={switchPage} cart={param2}/>;
+      case 'employeeMainMenuPage':
+        return <EmployeeMainMenuPage switchPage={switchPage} cart={param1}/>;
+      case 'employeeEntreePage':
+        return <EmployeeEntreePage switchPage={switchPage} numRequired={param1} cart={param2} newCartObj={param3}/>;
+      case 'employeeSidePage' :
+        return <EmployeeSidePage switchPage={switchPage} numEntreesRequired={param1} cart={param2}/>;
+      /* case 'employeeCartPage' :
+        return <EmployeeCartPage switchPage={switchPage} cart={param1}/>; */
+      case 'employeeAppetizerPage':
+        return <EmployeeAppetizerPage switchPage={switchPage} cart={param2}/>;
       default:
         return <StartPage switchPage={switchPage} />;
     }

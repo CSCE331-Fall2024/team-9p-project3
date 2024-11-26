@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Cart } from '../objects/cartObject';
 // import { query } from './api/dbconn';
 
 export default function LoginPage({ switchPage }) {
@@ -12,6 +13,10 @@ export default function LoginPage({ switchPage }) {
     const [error, setError] = useState('');
 
         const handleLogin = async() => {
+            if(username === "employee") {
+                const newCart = new Cart();
+                switchPage('employeeMainMenuPage', newCart);
+            }
             try{
                 const response = await fetch(`./pages/api/login?username=${username}`);
                 const isValid = await response.json()

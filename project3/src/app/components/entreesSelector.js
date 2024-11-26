@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 
-export default function EntreesSelector({ cart, numRequired, switchPage, newCartObj}) {
+export default function EntreesSelector({ cart, numRequired, switchPage, newCartObj, employee=false}) {
     const [selectedItems, setSelectedItems] = useState([]);
     const [items, setItems] = useState([]);
     
@@ -50,7 +50,11 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
         newCartObj.entreeItems = selectedItems;
         cart.addItem(newCartObj);
         setSelectedItems([]);
-        switchPage('customerMainMenuPage', cart);
+        if(employee) {
+            switchPage('employeeMainMenuPage', cart);
+        } else {
+            switchPage('customerMainMenuPage', cart);
+        }
         }
     };
 
