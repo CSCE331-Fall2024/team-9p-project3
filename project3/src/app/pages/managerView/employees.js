@@ -136,5 +136,3 @@ export default function EmployeesPage({ switchPage }) {
         </div>
     );
 }
-
-export {fetchData};

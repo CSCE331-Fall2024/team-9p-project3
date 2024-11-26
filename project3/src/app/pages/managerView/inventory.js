@@ -113,7 +113,7 @@ export default function InventoryPage({ switchPage }) {
                                 />
                             </td>
                             <td className="border border-gray-400 px-4 py-2">
-                                <button onClick={() => addNew(ID, name, stock)}>&#x2705;</button>
+                                <button onClick={() => addNew()}>&#x2705;</button>
                             </td>
                             <td className="border border-gray-400 px-4 py-2">
                                 <button>&#10060;</button>

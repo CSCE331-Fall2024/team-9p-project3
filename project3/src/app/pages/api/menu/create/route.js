@@ -4,12 +4,14 @@ export async function POST(req) {
     try {
         const newData = await req.json();
 
-        const prevID = newData.prevID;
-        const newID = newData.newID;
+        const id = newData.ID;
         const name = newData.name;
-        const stock = newData.stock;
+        let inventory = newData.inventory;
+        const type = newData.type;
 
-        const resp = await query('UPDATE inventory_items SET name= $1, stock= $2, item_ID = $3 WHERE item_ID = $4;', [name, stock, newID, prevID]);
+        inventory = JSON.stringify(inventory.split(',').map(item => item.trim()));
+
+        const resp = await query('INSERT INTO servable_items (item_id, name, inventory, type) VALUES ($1, $2, $3, $4);', [id, name, inventory, type]);
         return new Response({
             status: 200,
             headers: { "Content-Type": "application/json" }

@@ -19,3 +19,4 @@ export { default as SideSelector } from "./sideSelector";
 export { default as AppetizerSelector } from "./AppetizerSelector";
 export { default as EmployeeRow} from "./employeeRow";
 export { default as InventoryRow } from "./inventoryItemRow";
+export { default as MenuRow} from "./menuItemRow";
