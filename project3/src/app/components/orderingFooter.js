@@ -64,14 +64,14 @@ export default function OrderingFooter( { switchPage, cart, employee=false}) {
     }
 
     return(
-        <footer className="flex justify-between items-center pl-20 pr-20 w-full h-16">
-            <button className="text-black text-xl p-2 pl-4 pr-4 bg-red-500 rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => backToStart()} >Cancel Order</button>
+        <footer className="flex justify-between items-center font-semibold bg-red-600 pl-20 pr-20 w-full h-24">
+            <button className="text-white text-xl p-2 pl-4 pr-4 bg-red-600 rounded-lg border-2 border-white hover:bg-red-700 transition-colors" onClick={() => backToStart()} >Cancel Order</button>
             <div className="relative">
-                <button className='text-black text-xl p-2 pl-4 pr-4 bg-red-500 rounded hover:bg-blue-200 hover:text-blue-600 transition-colors' onClick={() => handleButtonClick()}>Translate</button>
+                <button className='text-white text-xl p-2 pl-4 pr-4 bg-red-600 rounded-lg border-2 border-white hover:bg-red-700 transition-colors' onClick={() => handleButtonClick()}>Translate</button>
                 {/* The translate element is always in the DOM, but visibility is controlled by className */}
                 <div id="google_translate_element" className={`flex flex-row absolute bottom-full left-1/2 transform -translate-x-1/2 mt-2 p-4 bg-white shadow-lg border rounded z-50 ${isTranslateVisible ? '' : 'hidden'}`} />
             </div>
-            <button className="text-black text-xl p-2 pl-4 pr-4 bg-red-500 rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => backToMenu(cart)}>Go Back</button>
+            <button className="text-white text-xl p-2 pl-4 pr-4 bg-red-600 rounded-lg border-2 border-white hover:bg-red-700 transition-colors" onClick={() => backToMenu(cart)}>Go Back</button>
         </footer>
     );
 }

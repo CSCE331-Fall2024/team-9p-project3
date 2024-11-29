@@ -1,3 +1,5 @@
+import { ManagerHeader } from "../../components";
+
 export default function UsageChartPage({ switchPage }) {
     const handleGoBack = () => {
         switchPage('managerMainPage'); // Redirects back to the login page
@@ -5,6 +7,7 @@ export default function UsageChartPage({ switchPage }) {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
+            <ManagerHeader switchPage={switchPage}/>
             <h1 className="text-4xl font-bold mb-8">Product Usage Chart</h1>
             <button
                 onClick={handleGoBack}

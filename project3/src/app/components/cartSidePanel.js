@@ -28,13 +28,15 @@ export function CartSideBlock( {cartObject} ) {
 export default function CartSidePanel( {cart}) {
     if(!cart) cart = new Cart();
     return (    
-        <div className="flex flex-col justify-start items-center h-full w-2/12 bg-gray-300">
-            <div className="flex flex-col justify-center items-center h-24 w-full bg-red-900/40">
-                <h1 className="text-black text-2xl">Order</h1>
+        <div className="flex flex-col justify-start items-center h-full w-3/12 bg-red-600 border-t-4 border-b-4 border-gray-200">
+            <div className="flex flex-col justify-center items-center h-24 w-full bg-red-600">
+                <h1 className="text-white font-semibold text-2xl">My Order</h1>
             </div>
-            {cart.items && cart.items.map((cartObj, index) => (
-                <CartSideBlock key={index} cartObject={cartObj}/>
-            ))}
+            <div className="flex flex-col justify-center items-center flex-grow w-full bg-white border-8 border-red-600">
+                {cart.items && cart.items.map((cartObj, index) => (
+                    <CartSideBlock key={index} cartObject={cartObj}/>
+                ))}                
+            </div>
         </div>
     );
 }

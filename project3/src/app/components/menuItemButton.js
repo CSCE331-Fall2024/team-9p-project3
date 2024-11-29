@@ -33,7 +33,9 @@ export default function MenuItemButton({title, switchPage, cart, employee=false}
     }
 
     return(
-        <button onClick={() => handleChoice()} className="flex justify-center items-center bg-red-300 text-black text-3xl hover:bg-red-400 transition-colors rounded">
+        <button 
+            onClick={() => handleChoice()} 
+            className="flex justify-center items-center rounded-lg font-semibold bg-white border-4 border-transparent text-black fort-semibold text-3xl hover:border-4 hover:border-red-600 hover:transition-colors rounded">
             {title}
         </button>
     );
