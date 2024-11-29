@@ -64,7 +64,7 @@ export default function CartPage({ cart, switchPage, employee=false }) {
     return (
         <main className="flex flex-col justify-center items-center h-screen">
             <OrderingHeader cart={newCart} switchPage={switchPage} employee={employee}/>
-            <h1>EMPLOYEE VIEW = {employee.toString()}</h1>
+            {/* <h1>EMPLOYEE VIEW = {employee.toString()}</h1> */}
             <div className="flex flex-row h-full w-full">
                 <div className="flex flex-col justify-center items-end h-full w-full">
                     <div className="flex justify-center items-center w-full bg-white border-b-2 border-black">
