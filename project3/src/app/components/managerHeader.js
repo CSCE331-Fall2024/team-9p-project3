@@ -27,7 +27,7 @@ export default function ManagerHeader({ switchPage }) {
                 onClick={handleGoBack} 
                 className="bg-red-600 text-white font-semibold py-3 px-4 rounded-lg border-2 border-white hover:bg-red-700"
             >
-                Back to Log In
+                Log Out
             </button>
             {/* <h2 className="text-lg font-semibold">
                 Manager View

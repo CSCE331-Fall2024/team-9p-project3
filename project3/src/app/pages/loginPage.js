@@ -38,28 +38,30 @@ export default function LoginPage({ switchPage }) {
 
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
-            <h1 className="text-4xl font-bold mb-8">Login</h1>
+        <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
+            <h1 className="text-4xl font-bold mb-8">Log In</h1>
             <div className="flex flex-col gap-4 w-1/3">
+                <div className="h-6">
+                    {error && <p className="text-red-600">{error}</p>}
+                </div>                
                 <input
                     type="text"
                     placeholder="Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="p-4 border rounded-md focus:outline-none focus:border-red-500"
+                    className="p-4 border rounded-md focus:outline-none focus:border-red-600"
                 />
                 <input
                     type="password"
                     placeholder="Password"
-                    className="p-4 border rounded-md focus:outline-none focus:border-red-500"
+                    className="p-4 border rounded-md focus:outline-none focus:border-red-600"
                 />
                 <button
                     onClick={handleLogin}
-                    className="p-4 bg-red-500 text-white rounded-md hover:bg-red-600"
+                    className="p-4 bg-red-600 text-white rounded-md hover:bg-red-700"
                 >
                     Log In
                 </button>
-                {error && <p className="text-red-500">{error}</p>}
             </div>
         </div>
     );

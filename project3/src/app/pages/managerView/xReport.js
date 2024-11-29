@@ -6,7 +6,7 @@ export default function XReportPage({ switchPage }) {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
+        <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
             <ManagerHeader switchPage={switchPage}/>
             <h1 className="text-4xl font-bold mb-8">X-Report</h1>
             <button

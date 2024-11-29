@@ -6,7 +6,7 @@ export default function ManagerMainPage({ switchPage }) {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
+        <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
             <ManagerHeader switchPage={switchPage}/>
             {/* <h1 className="text-4xl font-bold mb-8">Manager View</h1> */}
             
@@ -30,13 +30,6 @@ export default function ManagerMainPage({ switchPage }) {
                     className="p-4 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700"
                 >
                     Inventory
-                </button>
-                
-                <button
-                    onClick={() => switchPage('orderHistoryPage')}
-                    className="p-4 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700"
-                >
-                    Order History
                 </button>
                 
                 <button
