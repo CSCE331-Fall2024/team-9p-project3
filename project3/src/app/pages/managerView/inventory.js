@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { InventoryRow } from '@/app/components';
+import { ManagerHeader } from '../../components';
 
 export default function InventoryPage({ switchPage }) {
 
@@ -75,7 +76,8 @@ export default function InventoryPage({ switchPage }) {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
-            <h1 className="text-4xl font-bold mb-8">Inventory</h1>
+            <ManagerHeader switchPage={switchPage}/>
+            <h1 className="text-4xl font-bold mb-8 mt-32">Inventory</h1>
             {inventoryItems.length > 0 ? (
                 <table className='table-auto border-collapse border-gray-400'>
                     <thead>
@@ -126,7 +128,7 @@ export default function InventoryPage({ switchPage }) {
             )}
             <button
                 onClick={handleGoBack}
-                className="p-4 bg-red-500 text-white rounded-md hover:bg-red-600"
+                className="p-4 bg-red-500 text-white rounded-md mt-5 hover:bg-red-600"
             >
                 Back
             </button>

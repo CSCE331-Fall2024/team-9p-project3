@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {EmployeeRow} from "../../components";
+import {EmployeeRow, ManagerHeader} from "../../components";
 
 export default function EmployeesPage({ switchPage }) {
     const [employees, setEmployees] = useState([]); // State to store employees
@@ -73,6 +73,7 @@ export default function EmployeesPage({ switchPage }) {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-100">
+            <ManagerHeader switchPage={switchPage}/>
             <h1 className="text-4xl font-bold mb-8">Employees</h1>
             {employees.length > 0 ? (
                 <table className="table-auto border-collapse border border-gray-400">
@@ -129,7 +130,7 @@ export default function EmployeesPage({ switchPage }) {
             )}
             <button
                 onClick={handleGoBack}
-                className="mt-4 p-4 bg-red-500 text-white rounded-md hover:bg-red-600"
+                className="mt-5 p-4 bg-red-500 text-white rounded-md hover:bg-red-600"
             >
                 Back
             </button>
