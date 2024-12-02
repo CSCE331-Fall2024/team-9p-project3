@@ -167,3 +167,24 @@ Minutes:
 - planned what to do over the break and before the next SCRUM meeting (12 mins)
 
 Next SCRUM meeting: 12/02/24
+
+
+
+SCRUM MEETING 3 - SPRINT 3
+Meeting Time: 12/02/24
+Members Present: Mario, Yuan, Kyle, Truman
+
+Things we got done:
+- Finished inventory screen
+- Created pop-ups for customer view
+- Created final aesthetic and color palette for customer view and overall github
+
+Things we still need to do:
+- z report, x report, product usage chart
+- google authentication
+- above and beyond, as well as disability accomodations
+- all other smaller tasks in the Jira
+
+Minutes:
+- Discussed what we were able to do over the break (5 mins)
+- Discussed what to complete for the end of the project (8 mins)

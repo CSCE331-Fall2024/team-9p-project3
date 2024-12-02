@@ -60,9 +60,9 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
 
     const buttonClassName = (item, selectedItems) => {
         if (selectedItems.includes(item)) {
-            return "p-4 text-2xl text-black rounded transition-colors bg-gray-500";
+            return "p-4 text-2xl text-black rounded border-2 border-transparent transition-colors bg-red-600";
         } else {
-            return "p-4 text-2xl text-black rounded transition-colors bg-gray-300 hover:bg-gray-400";
+            return "p-4 text-2xl text-black rounded border-2 border-transparent transition-colors bg-gray-300 hover:border-red-600";
         }
     };
 
@@ -74,8 +74,8 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
         }
     }
     return (
-        <div className="flex flex-col items-center w-full h-full p-8">
-            <div className="grid grid-cols-2 gap-10 w-full h-full">
+        <div className="flex flex-col items-center w-full max-h-[80%] p-8">
+            <div className="grid grid-cols-2 overflow-y-auto gap-10 w-full h-full">
                 {items.map((item) => ( //essentially javascript equivalent of   (for item : items)
                 <button key={item} className={buttonClassName(item, selectedItems)} onClick={() => toggleSelection(item)}>
                     {item}
