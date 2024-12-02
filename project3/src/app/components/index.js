@@ -21,3 +21,4 @@ export { default as EmployeeRow} from "./employeeRow";
 export { default as InventoryRow } from "./inventoryItemRow";
 export { default as MenuRow} from "./menuItemRow";
 export { default as ManagerHeader } from "./managerHeader";
+export { default as Popup } from "./popup";

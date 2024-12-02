@@ -1,11 +1,30 @@
 import { useState } from "react";
-import Image from "next/image";
-import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter } from "../../components";
+import { OrderingHeader, Popup, OrderingFooter } from "../../components";
 import { Cart } from "@/app/objects/cartObject";
 
 export default function CartPage({ cart, switchPage, employee=false }) {
     console.log("Starting Cartpage. Employee = ", employee);
     const [newCart, setCart] = useState(cart);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupFunction, setPopupFunction] = useState(null);
+    const [popupMessage, setPopupMessage] = useState('');
+
+    const openPopup = (message, onYes) => {
+        setPopupMessage(message);
+        setPopupFunction(() => onYes);
+        setShowPopup(true);
+    }
+
+    const onYesPopup = () => {
+        if (popupFunction) {
+            popupFunction();
+        }
+        setShowPopup(false);
+    }
+
+    const onNoPopup = () => {
+        setShowPopup(false);
+    }
 
     const handleRemoveItem = (cartObject) => {
         newCart.removeItem(cartObject);
@@ -83,7 +102,7 @@ export default function CartPage({ cart, switchPage, employee=false }) {
                                         <h2 className="text-black text-2xl">${cartObject.getPrice().toFixed(2)}</h2>
                                     </div>
                                     <div className="flex flex-row justify-center items-center h-full w-1/3 gap-10">
-                                        <button className="text-white text-lg p-2 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => handleRemoveItem(cartObject)}>Remove</button>
+                                        <button className="text-white text-lg p-2 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => openPopup("Are you sure you want to remove this item", () => handleRemoveItem(cartObject))}>Remove</button>
                                         <button className="text-white p-2 text-lg bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => copyCartItem(cartObject)}>Copy</button>
                                     </div>
                                 </div>
@@ -95,7 +114,7 @@ export default function CartPage({ cart, switchPage, employee=false }) {
                                 <div className="w-1/3 h-full flex flex-row justify-center items-center gap-10">
                                     <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => handleOrderMore(newCart)}>Order More</button>
                                     {newCart.items.length > 0 ? (
-                                        <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => handlePlaceOrder(newCart)}>Place Order</button>
+                                        <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => openPopup("Are you sure you want to place your order?", () => handlePlaceOrder(newCart))}>Place Order</button>
                                     ) : (
                                         <button className="text-white text-xl p-2 pl-4 pr-4 bg-gray-600 rounded transition-colors">Place Order</button>
                                     )
@@ -108,6 +127,9 @@ export default function CartPage({ cart, switchPage, employee=false }) {
                 </div>
             </div>
             <OrderingFooter switchPage={switchPage} cart={cart} employee={employee}/>
+            {showPopup && (
+                <Popup message={popupMessage} onConfirm={onYesPopup} onCancel={onNoPopup}/>
+            )}
         </main>
     );
 }

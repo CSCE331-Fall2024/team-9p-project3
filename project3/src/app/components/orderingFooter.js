@@ -1,8 +1,30 @@
 import { useState, useEffect } from 'react';
 import { Cart } from '../objects/cartObject';
+import Popup from './popup';
     
 export default function OrderingFooter( { switchPage, cart, employee=false}) {
     const [isTranslateVisible, setTranslateVisible] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupFunction, setPopupFunction] = useState(null);
+    const [popupMessage, setPopupMessage] = useState('');
+
+    const openPopup = (message, onYes) => {
+        setPopupMessage(message);
+        setPopupFunction(() => onYes);
+        setShowPopup(true);
+    }
+
+    const onYesPopup = () => {
+        if (popupFunction) {
+            popupFunction();
+        }
+        setShowPopup(false);
+    }
+
+    const onNoPopup = () => {
+        setShowPopup(false);
+    }
+
     useEffect(() => {
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "googtrans=/en; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -64,8 +86,9 @@ export default function OrderingFooter( { switchPage, cart, employee=false}) {
     }
 
     return(
+    <>
         <footer className="flex justify-between items-center font-semibold bg-red-600 pl-20 pr-20 w-full h-24">
-            <button className="text-white text-xl p-2 pl-4 pr-4 bg-red-600 rounded-lg border-2 border-white hover:bg-red-700 transition-colors" onClick={() => backToStart()} >Cancel Order</button>
+            <button className="text-white text-xl p-2 pl-4 pr-4 bg-red-600 rounded-lg border-2 border-white hover:bg-red-700 transition-colors" onClick={() => openPopup("Are you sure you want to cancel your order?", backToStart)} >Cancel Order</button>
             <div className="relative">
                 <button className='text-white text-xl p-2 pl-4 pr-4 bg-red-600 rounded-lg border-2 border-white hover:bg-red-700 transition-colors' onClick={() => handleButtonClick()}>Translate</button>
                 {/* The translate element is always in the DOM, but visibility is controlled by className */}
@@ -73,7 +96,14 @@ export default function OrderingFooter( { switchPage, cart, employee=false}) {
             </div>
             <button className="text-white text-xl p-2 pl-4 pr-4 bg-red-600 rounded-lg border-2 border-white hover:bg-red-700 transition-colors" onClick={() => backToMenu(cart)}>Go Back</button>
         </footer>
+        
+        {showPopup && (
+        <Popup message={popupMessage} onConfirm={onYesPopup} onCancel={onNoPopup}/>
+        )}
+    </>
     );
+
+    
 }
 
 
