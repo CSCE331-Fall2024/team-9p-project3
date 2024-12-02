@@ -28,14 +28,26 @@ async function uploadCartToDatabase(cart,generatedIds) {
       console.log("price:", totalPrice);                  // Replace with actual variable for price
 
       const valid = JSON.stringify(generatedIds);
-  
+      const currentDate = new Date();
+      const formatDateTime = (date) => {
+        return date.toLocaleString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+        });
+    };
+    const formattedDateFrom = formatDateTime(currentDate);
       // Insert into the customer_ordres table and get the new cart ID
       const cartResult = await query(
         'INSERT INTO customer_orders (order_ID, customer_item, order_time, price) VALUES ($1, $2, $3, $4) RETURNING order_ID',
         [
             nextId,
             valid,
-            null,
+            formattedDateFrom,
             totalPrice,
         ]
       );
