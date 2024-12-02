@@ -1,35 +1,13 @@
-// import { ManagerHeader } from "../../components";
-
-// export default function XReportPage({ switchPage }) {
-//     const handleGoBack = () => {
-//         switchPage('managerMainPage'); // Redirects back to the login page
-//     };
-
-//     return (
-//         <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
-//             <ManagerHeader switchPage={switchPage}/>
-//             <h1 className="text-4xl font-bold mb-8">X-Report</h1>
-//             <button
-//                 onClick={handleGoBack}
-//                 className="p-4 bg-red-500 text-white rounded-md hover:bg-red-600"
-//             >
-//                 Back
-//             </button>
-//         </div>
-//     );
-// }
-
+import { useEffect, useState } from "react";
 import { ManagerHeader } from "../../components";
 
 export default function XReportPage({ switchPage }) {
-    const handleGoBack = () => {
-        switchPage('managerMainPage'); // Redirects back to the login page
-    };
+    const [reportData, setReportData] = useState({
+        orderCount: 0,
+        totalPrice: 0,
+    });
 
-    // Get current date and time
     const currentDate = new Date();
-
-    // Calculate DATE FROM (start of the current day at 00:00:00)
     const dateFrom = new Date(
         currentDate.getFullYear(),
         currentDate.getMonth(),
@@ -39,7 +17,6 @@ export default function XReportPage({ switchPage }) {
         0
     );
 
-    // Format dates
     const formatDateTime = (date) => {
         return date.toLocaleString("en-US", {
             year: "numeric",
@@ -55,22 +32,38 @@ export default function XReportPage({ switchPage }) {
     const formattedDateFrom = formatDateTime(dateFrom);
     const formattedDateTo = formatDateTime(currentDate);
 
-    // Sample data for the X-Report table
-    const xReportData = [
-        { type: "Sales", value: "$1,500" },
-        { type: "Returns", value: "$200" },
-        { type: "Voids", value: "$50" },
-        { type: "Discards", value: "$30" },
-        { type: "Payment Methods", value: "Credit: $1,200, Cash: $300" },
-    ];
+    useEffect(() => {
+        // Fetch data from the API
+        const fetchData = async () => {
+            try {
+                const response = await fetch("./pages/api/xreport", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        dateFrom: formattedDateFrom,
+                        dateTo: formattedDateTo,
+                    }),
+                });
+                const data = await response.json();
+                console.log("Data before setXreport: ", data);
+                setReportData({
+                    orderCount: data[0].order_count,
+                    totalPrice: data[0].total_price,
+                });
+            } catch (error) {
+                console.error("Error fetching X-report data:", error);
+            }
+        };
+
+        fetchData();
+    }, [formattedDateFrom, formattedDateTo]);
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
             <ManagerHeader switchPage={switchPage} />
-            <div className="mt-16"> {/* Added margin-top to push content down */}
+            <div className="mt-16">
                 <h1 className="text-4xl font-bold mb-8">X-Report</h1>
 
-                {/* Report Details */}
                 <div className="w-full max-w-4xl bg-white p-4 rounded-md shadow-md mb-6">
                     <p className="text-lg">
                         <strong>DATE FROM:</strong> {formattedDateFrom}
@@ -83,28 +76,17 @@ export default function XReportPage({ switchPage }) {
                     </p>
                 </div>
 
-                {/* Table Section */}
-                <div className="overflow-x-auto w-full max-w-4xl">
-                    <table className="table-auto border-collapse border border-gray-400 w-full text-left">
-                        <thead className="bg-gray-300">
-                            <tr>
-                                <th className="border border-gray-400 px-4 py-2">Type</th>
-                                <th className="border border-gray-400 px-4 py-2">Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {xReportData.map((item, index) => (
-                                <tr key={index} className="bg-white even:bg-gray-100">
-                                    <td className="border border-gray-400 px-4 py-2">{item.type}</td>
-                                    <td className="border border-gray-400 px-4 py-2">{item.value}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                <div className="w-full max-w-4xl bg-white p-4 rounded-md shadow-md">
+                    <p className="text-lg">
+                        <strong>Total Orders:</strong> {reportData.orderCount}
+                    </p>
+                    <p className="text-lg">
+                        <strong>Total Price:</strong> ${reportData.totalPrice}
+                    </p>
                 </div>
 
                 <button
-                    onClick={handleGoBack}
+                    onClick={() => switchPage("managerMainPage")}
                     className="p-4 mt-8 bg-red-500 text-white rounded-md hover:bg-red-600"
                 >
                     Back
@@ -113,5 +95,6 @@ export default function XReportPage({ switchPage }) {
         </div>
     );
 }
+
 
 
