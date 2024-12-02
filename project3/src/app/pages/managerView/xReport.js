@@ -67,48 +67,51 @@ export default function XReportPage({ switchPage }) {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
             <ManagerHeader switchPage={switchPage} />
-            <h1 className="text-4xl font-bold mb-8">X-Report</h1>
+            <div className="mt-16"> {/* Added margin-top to push content down */}
+                <h1 className="text-4xl font-bold mb-8">X-Report</h1>
 
-            {/* Report Details */}
-            <div className="w-full max-w-4xl bg-white p-4 rounded-md shadow-md mb-6">
-                <p className="text-lg">
-                    <strong>DATE FROM:</strong> {formattedDateFrom}
-                </p>
-                <p className="text-lg">
-                    <strong>DATE TO:</strong> {formattedDateTo}
-                </p>
-                <p className="text-lg">
-                    <strong>GENERATED DATE:</strong> {formattedDateTo}
-                </p>
-            </div>
+                {/* Report Details */}
+                <div className="w-full max-w-4xl bg-white p-4 rounded-md shadow-md mb-6">
+                    <p className="text-lg">
+                        <strong>DATE FROM:</strong> {formattedDateFrom}
+                    </p>
+                    <p className="text-lg">
+                        <strong>DATE TO:</strong> {formattedDateTo}
+                    </p>
+                    <p className="text-lg">
+                        <strong>GENERATED DATE:</strong> {formattedDateTo}
+                    </p>
+                </div>
 
-            {/* Table Section */}
-            <div className="overflow-x-auto w-full max-w-4xl">
-                <table className="table-auto border-collapse border border-gray-400 w-full text-left">
-                    <thead className="bg-gray-300">
-                        <tr>
-                            <th className="border border-gray-400 px-4 py-2">Type</th>
-                            <th className="border border-gray-400 px-4 py-2">Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {xReportData.map((item, index) => (
-                            <tr key={index} className="bg-white even:bg-gray-100">
-                                <td className="border border-gray-400 px-4 py-2">{item.type}</td>
-                                <td className="border border-gray-400 px-4 py-2">{item.value}</td>
+                {/* Table Section */}
+                <div className="overflow-x-auto w-full max-w-4xl">
+                    <table className="table-auto border-collapse border border-gray-400 w-full text-left">
+                        <thead className="bg-gray-300">
+                            <tr>
+                                <th className="border border-gray-400 px-4 py-2">Type</th>
+                                <th className="border border-gray-400 px-4 py-2">Value</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            {xReportData.map((item, index) => (
+                                <tr key={index} className="bg-white even:bg-gray-100">
+                                    <td className="border border-gray-400 px-4 py-2">{item.type}</td>
+                                    <td className="border border-gray-400 px-4 py-2">{item.value}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
-            <button
-                onClick={handleGoBack}
-                className="p-4 mt-8 bg-red-500 text-white rounded-md hover:bg-red-600"
-            >
-                Back
-            </button>
+                <button
+                    onClick={handleGoBack}
+                    className="p-4 mt-8 bg-red-500 text-white rounded-md hover:bg-red-600"
+                >
+                    Back
+                </button>
+            </div>
         </div>
     );
 }
+
 
