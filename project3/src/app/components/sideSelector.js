@@ -50,12 +50,14 @@ export default function SideSelector({ cart, switchPage, numRequired, employee=f
     };
 
     const handleSubmit = () => {
-        const newCartObject = new CartObject(selectedItems.at(0));
-        setSelectedItems([]);
-        if(employee) {
-            switchPage('employeeEntreePage', numRequired, cart, newCartObject);
-        } else {
-            switchPage('entreePage', numRequired, cart, newCartObject);
+        if(selectedItems.length > 0) {
+            const newCartObject = new CartObject(selectedItems.at(0));
+            setSelectedItems([]);
+            if(employee) {
+                switchPage('employeeEntreePage', numRequired, cart, newCartObject);
+            } else {
+                switchPage('entreePage', numRequired, cart, newCartObject);
+            }
         }
     };
 
@@ -66,6 +68,13 @@ export default function SideSelector({ cart, switchPage, numRequired, employee=f
             return "p-4 text-2xl text-black font-semibold rounded-lg transition-colors bg-white border-4 border-transparent hover:border-red-600";
         }
     };
+    const submitButtonClass = () => {
+        if(selectedItems.length < 1) {
+            return "mt-4 p-2 bg-gray-500 text-black text-xl rounded hover:bg-gray-600 transition-colors";
+        } else {
+            return "mt-4 p-2 bg-red-500 text-black text-xl rounded hover:bg-red-600 transition-colors";
+        }
+    }
     return (
         <div className="flex flex-col items-center w-full h-full p-8">
             <div className="grid grid-cols-2 gap-10 w-full h-full">
@@ -76,7 +85,7 @@ export default function SideSelector({ cart, switchPage, numRequired, employee=f
             </div>
             <button
                 onClick={handleSubmit}
-                className="mt-4 p-2 pl-4 pr-4 bg-red-600 text-white font-semibold text-xl rounded hover:bg-red-700 transition-colors">
+                className={submitButtonClass()}>
                 Submit 
             </button>
         </div>
