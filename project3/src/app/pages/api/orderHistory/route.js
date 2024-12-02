@@ -1,4 +1,4 @@
-const { query } = require('./dbconn'); 
+const { query } = require('../dbconn'); 
 
 export default async function handler(req, res) {
   try {
