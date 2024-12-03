@@ -1,13 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Cart } from '../objects/cartObject';
-// import { query } from './api/dbconn';
+import { auth } from './api/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
 
 export default function LoginPage({ switchPage }) {
-    // return(
-    //     <div>
-    //         <p>Hello</p>
-    //     </div>
-    // );
+
+    const handleNewLogin = async (username, password) => {
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, username, password);
+            const user = userCredential.user;
+            console.log("Loggied in: ", user);
+            //determine manager/employee or invalid status here
+        } catch (error) {
+            console.error("Login failed: ", error.message);
+        }
+    }
+
     const [username, setUsername] = useState('');
     // const [password, setPassword] = useState('');
     const [error, setError] = useState('');

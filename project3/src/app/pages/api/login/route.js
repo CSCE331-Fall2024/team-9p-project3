@@ -1,5 +1,22 @@
 import { query } from '../dbconn';
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from '../firebase';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+
+
+/* export const loginUser = async (username, password) => {
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, username, password);
+        const user = userCredential.user;
+        console.log("Loggied in: ", user);
+        //determine manager/employee or invalid status here
+    } catch (error) {
+        console.error("Login failed: ", error.message);
+    }
+} */
+export const createUser = async (email, password, role) {
+    
+}
 
 export async function GET(req) {
     const username = req.nextUrl.searchParams.get('username');

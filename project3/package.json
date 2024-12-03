@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.4",
     "dgram": "^1.0.1",
     "dns": "^0.2.2",
     "fs": "^0.0.1-security",
