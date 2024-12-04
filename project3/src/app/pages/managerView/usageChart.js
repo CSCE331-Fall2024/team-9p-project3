@@ -22,7 +22,7 @@ export default function UsageChartPage({ switchPage }) {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
-            <ManagerHeader switchPage={switchPage}/>
+            <ManagerHeader switchPage={switchPage}></ManagerHeader>
             <h2 className="text-3xl font-bold mb-8">Select Start and End Dates</h2>
             <div className="flex items-center space-x-6 mb-6">
                 <div>

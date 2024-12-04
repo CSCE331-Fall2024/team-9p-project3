@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { OrderingHeader, Popup, OrderingFooter } from "../../components";
+import { OrderingHeader, Popup, OrderingFooter, AllergenText } from "../../components";
 import { Cart } from "@/app/objects/cartObject";
 
 export default function CartPage({ cart, switchPage, employee=false }) {
@@ -140,7 +140,7 @@ export default function CartPage({ cart, switchPage, employee=false }) {
                     <div className="bg-white p-6 rounded shadow-lg flex flex-col items-center">
                         <p className="text-black text-lg mb-4">Ingredients in Cart</p>
                         <div>
-                            TODO: show ingredients of items currently in newCart
+                            <AllergenText cart={cart}></AllergenText>
                         </div>
                         <div className="flex gap-4">
                             <button className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-colors" onClick={() => setAllergyPopup(false)}>

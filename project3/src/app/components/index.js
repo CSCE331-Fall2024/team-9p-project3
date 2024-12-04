@@ -23,3 +23,4 @@ export { default as MenuRow} from "./menuItemRow";
 export { default as ManagerHeader } from "./managerHeader";
 export { default as Popup } from "./popup";
 export { default as ProductUsageChart } from "./productUsageChart";
+export { default as AllergenText } from "./AllergenText";
