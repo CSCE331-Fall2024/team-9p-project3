@@ -1,31 +1,51 @@
 import { useState, useEffect } from 'react';
 import { Cart } from '../objects/cartObject';
-// import { query } from './api/dbconn';
+import { auth } from './api/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
 
 export default function LoginPage({ switchPage }) {
-    // return(
-    //     <div>
-    //         <p>Hello</p>
-    //     </div>
-    // );
     const [username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
+    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-        const handleLogin = async() => {
-            if(username === "employee") {
+
+    const handleNewLogin = async () => {
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, username+"@project3.com", password);
+            const user = userCredential.user;
+            console.log("Loggied in: ", user);
+            //determine manager/employee or invalid status here
+            getUserRole();
+        } catch (error) {
+            console.error("Login failed: ", error.message);
+        }
+    }
+
+    
+
+        const getUserRole = async() => {
+            /* if(username === "employee") {
                 const newCart = new Cart();
                 switchPage('employeeMainMenuPage', newCart);
-            }
+            } */
             try{
                 const response = await fetch(`./pages/api/login?username=${username}`);
-                const isValid = await response.json()
+                const isValid = await response.json();
                 if (!response.ok) {
                     throw new Error(`Error: ${response.status} - ${response.statusText}`);
                 }
-                console.log(isValid.valid)
+                console.log(isValid.valid);
+                console.log(isValid.manager);
+                console.log(response);
                 if (isValid.valid) {
-                    switchPage('managerMainPage');
+                    //TODO find out if user is manager or employee and switch page accordingly
+                    if(isValid.manager) {
+                        switchPage('managerMainPage');
+                    } else {
+                        switchPage('employeeMainMenuPage', new Cart());
+                    }
+                    
                 } else {
                     setError('Invalid username or Password');
                 }
@@ -54,10 +74,12 @@ export default function LoginPage({ switchPage }) {
                 <input
                     type="password"
                     placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="p-4 border rounded-md focus:outline-none focus:border-red-600"
                 />
                 <button
-                    onClick={handleLogin}
+                    onClick={handleNewLogin}
                     className="p-4 bg-red-600 text-white rounded-md hover:bg-red-700"
                 >
                     Log In

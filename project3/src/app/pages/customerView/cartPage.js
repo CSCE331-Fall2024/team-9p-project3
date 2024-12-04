@@ -8,6 +8,7 @@ export default function CartPage({ cart, switchPage, employee=false }) {
     const [showPopup, setShowPopup] = useState(false);
     const [popupFunction, setPopupFunction] = useState(null);
     const [popupMessage, setPopupMessage] = useState('');
+    const [allergyPopup, setAllergyPopup] = useState(false);
 
     const openPopup = (message, onYes) => {
         setPopupMessage(message);
@@ -108,18 +109,22 @@ export default function CartPage({ cart, switchPage, employee=false }) {
                                 </div>
                                 
                             ))}
-                            <div className="mt-3 flex flex-row justify-start items-center h-full max-h-16 w-full bg-gray-300">
-                                <h1 className="text-black text-2xl font-bold w-1/2 pl-2">Total</h1>
+                            <div className="mt-3 flex flex-row justify-between items-center h-full max-h-16 w-full bg-gray-300">
+                                <div className="text-black text-2xl font-bold w-1/2 pl-2 flex flex-row justify-start items-center gap-10">Total
+                                    <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => handleOrderMore(newCart)}>Order More</button>
+                                </div>
                                 <h1 className="text-black text-2xl font-bold w-1/6">${newCart.getCartPrice().toFixed(2)}</h1>
                                 <div className="w-1/3 h-full flex flex-row justify-center items-center gap-10">
-                                    <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => handleOrderMore(newCart)}>Order More</button>
+                                    {newCart.items.length > 0 ? (
+                                        <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => setAllergyPopup(true)}>View Allergen Information</button>
+                                    ) : (
+                                        <button className="text-white text-xl p-2 pl-4 pr-4 bg-gray-600 rounded transition-colors">View Allergen Information</button>
+                                    )}
                                     {newCart.items.length > 0 ? (
                                         <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => openPopup("Are you sure you want to place your order?", () => handlePlaceOrder(newCart))}>Place Order</button>
                                     ) : (
                                         <button className="text-white text-xl p-2 pl-4 pr-4 bg-gray-600 rounded transition-colors">Place Order</button>
-                                    )
-                                        
-                                    }
+                                    )}
                                     
                                 </div>
                             </div>
@@ -129,6 +134,21 @@ export default function CartPage({ cart, switchPage, employee=false }) {
             <OrderingFooter switchPage={switchPage} cart={cart} employee={employee}/>
             {showPopup && (
                 <Popup message={popupMessage} onConfirm={onYesPopup} onCancel={onNoPopup}/>
+            )}
+            {allergyPopup && (
+                <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+                    <div className="bg-white p-6 rounded shadow-lg flex flex-col items-center">
+                        <p className="text-black text-lg mb-4">Ingredients in Cart</p>
+                        <div>
+                            TODO: show ingredients of items currently in newCart
+                        </div>
+                        <div className="flex gap-4">
+                            <button className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 transition-colors" onClick={() => setAllergyPopup(false)}>
+                                Ok
+                            </button>
+                        </div>
+                    </div>
+                </div>
             )}
         </main>
     );
