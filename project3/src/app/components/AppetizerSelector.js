@@ -53,7 +53,7 @@ export default function AppetizerSelector({ cart, switchPage, numRequired, emplo
         cart.addItem(newCartObject)
         setSelectedItems([]);
         if(employee) {
-            switchPage('employeeMainPage', cart);
+            switchPage('employeeMainMenuPage', cart);
         } else {
             switchPage('customerMainMenuPage', cart);
         }

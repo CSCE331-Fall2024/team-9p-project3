@@ -6,6 +6,7 @@ export default function EmployeesPage({ switchPage }) {
     const [loading, setLoading] = useState(true); // State to track loading status
     const [error, setError] = useState(null); // State to track errors
     const [employeeId, setEmployeeId] = useState('');
+    const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [manager, setManager] = useState('');
 
@@ -23,6 +24,7 @@ export default function EmployeesPage({ switchPage }) {
                 body:JSON.stringify({
                     "newID":employeeId,
                     "name":name,
+                    "password":password,
                     "isManager":manager
                 })
             });
@@ -48,13 +50,13 @@ export default function EmployeesPage({ switchPage }) {
                 throw new Error('Failed to fetch employees');
             }
             const data = await res.json();
-            setEmployees(data); // Update the employees state
+            setEmployees(data);
 
         } catch (err) {
             console.error('Error:', err);
             setError(err.message);
         } finally {
-            setLoading(false); // Set loading to false after the request is complete
+            setLoading(false);
 
         }
     };
@@ -81,6 +83,7 @@ export default function EmployeesPage({ switchPage }) {
                         <tr>
                             <th className="border border-gray-400 px-4 py-2">ID</th>
                             <th className="border border-gray-400 px-4 py-2">Name</th>
+                            <th className="border border-gray-400 px-4 py-2">Password</th>
                             <th className="border border-gray-400 px-4 py-2">Manager Status</th>
                             <th className="border border-gray-400 px-4 py-2">Save Change</th>
                             <th className="border border-gray-400 px-4 py-2">Delete</th>
@@ -104,6 +107,12 @@ export default function EmployeesPage({ switchPage }) {
                                 <input
                                     type="text"
                                     onChange={(e) => setName(e.target.value)}
+                                />
+                            </td>
+                            <td className="border border-gray-400 px-4 py-2">
+                                <input
+                                    type="text"
+                                    onChange={(e) => setPassword(e.target.value)}
                                 />
                             </td>
                             <td className="border border-gray-400 px-4 py-2">
