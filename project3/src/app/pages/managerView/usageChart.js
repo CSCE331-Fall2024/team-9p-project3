@@ -57,7 +57,7 @@ export default function UsageChartPage({ switchPage }) {
 
             <button
                 onClick={handleGoBack}
-                className="p-4 bg-red-500 text-white rounded-md hover:bg-red-600"
+                className="mt-5 p-4 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700"
             >
                 Back
             </button>
