@@ -1,4 +1,5 @@
 import { ManagerHeader } from "../../components";
+import { Cart } from "@/app/objects/cartObject";
 
 export default function ManagerMainPage({ switchPage }) {
     const handleGoBack = () => {
@@ -51,6 +52,13 @@ export default function ManagerMainPage({ switchPage }) {
                     className="p-4 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700"
                 >
                     Product Usage Chart
+                </button>
+
+                <button
+                    onClick={() => switchPage('employeeMainMenuPage', new Cart())}
+                    className="p-4 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700"
+                >
+                    Switch to Employee View
                 </button>
 
             </div>
