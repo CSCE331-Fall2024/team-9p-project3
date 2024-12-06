@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Cart } from '../objects/cartObject';
 import { auth } from './api/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { deleteUser } from 'firebase/auth';
 
 
 export default function LoginPage({ switchPage }) {
