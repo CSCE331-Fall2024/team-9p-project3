@@ -70,13 +70,13 @@ export default function SideSelector({ cart, switchPage, numRequired, employee=f
     };
     const submitButtonClass = () => {
         if(selectedItems.length < 1) {
-            return "mt-4 p-2 bg-gray-500 text-black text-xl rounded hover:bg-gray-600 transition-colors";
+            return "mt-4 p-2 bg-gray-300 text-gray-500 text-xl rounded";
         } else {
-            return "mt-4 p-2 bg-red-500 text-black text-xl rounded hover:bg-red-600 transition-colors";
+            return "mt-4 p-2 bg-red-600 text-black text-xl rounded hover:bg-red-700 transition-colors";
         }
     }
     return (
-        <div className="flex flex-col items-center w-full h-full p-8">
+        <div className="flex flex-col items-center font-semibold w-full h-full p-8">
             <div className="grid grid-cols-2 gap-10 w-full h-full">
                 {items.map((item) => ( //essentially javascript equivalent of   (for item : items)
                 <button key={item} className={buttonClassName(item, selectedItems)} onClick={() => handleSelection(item)}>

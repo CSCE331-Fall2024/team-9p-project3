@@ -6,19 +6,16 @@ export default function CustomerMainMenuPage({ cart, switchPage }) {
     //     cart = new Cart();
     // } 
     return (
-        <main className="flex flex-col justify-center items-center bg-grey-200 h-screen">
+        <main className="flex flex-col justify-center items-center bg-gray-200 h-screen">
             <OrderingHeader cart={cart} switchPage={switchPage}/>
-            <div className="flex flex-row h-full w-full bg-grey-200">
-                <CartSidePanel cart={cart}/>
-                <div className="flex flex-col justify-center items-end h-full w-full">
-                    <OrderingTopPanel title="Choose Your Item"/>
-                    <div className="flex justify-center items-center bg-gray-200 h-5/6 w-full">
-                        <div className="grid grid-cols-2 gap-10 w-full h-full p-8">
-                            <MenuItemButton title="Bowl" switchPage={switchPage} cart={cart}/>
-                            <MenuItemButton title="Plate" switchPage={switchPage} cart={cart}/>
-                            <MenuItemButton title="Bigger Plate" switchPage={switchPage} cart={cart}/>
-                            <MenuItemButton title="Appetizer" switchPage={switchPage} cart={cart}/>
-                        </div>
+            <div className="flex flex-col justify-center items-end h-full w-full">
+                <OrderingTopPanel title="Choose Your Item"/>
+                <div className="flex justify-center items-center bg-gray-200 h-5/6 w-full">
+                    <div className="grid grid-cols-2 gap-10 w-full h-full p-8">
+                        <MenuItemButton title="Bowl" switchPage={switchPage} cart={cart}/>
+                        <MenuItemButton title="Plate" switchPage={switchPage} cart={cart}/>
+                        <MenuItemButton title="Bigger Plate" switchPage={switchPage} cart={cart}/>
+                        <MenuItemButton title="Appetizer" switchPage={switchPage} cart={cart}/>
                     </div>
                 </div>
             </div>

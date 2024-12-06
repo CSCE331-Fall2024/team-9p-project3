@@ -60,32 +60,38 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
 
     const buttonClassName = (item, selectedItems) => {
         if (selectedItems.includes(item)) {
-            return "p-4 text-2xl text-black rounded border-2 border-transparent transition-colors bg-red-600";
+            return "p-4 text-2xl text-black rounded-lg h-[150px] border-4 border-transparent transition-colors bg-red-600";
         } else {
-            return "p-4 text-2xl text-black rounded border-2 border-transparent transition-colors bg-gray-300 hover:border-red-600";
+            return "p-4 text-2xl text-black rounded-lg h-[150px] border-4 border-transparent transition-colors bg-white hover:border-red-600";
         }
     };
 
     const submitButtonClass = () => {
         if(selectedItems.length < numRequired) {
-            return "mt-4 p-2 bg-gray-500 text-black text-xl rounded hover:bg-gray-600 transition-colors";
+            return "mt-4 p-2 bg-gray-300 text-gray-500 text-xl rounded";
         } else {
-            return "mt-4 p-2 bg-red-500 text-black text-xl rounded hover:bg-red-600 transition-colors";
+            return "mt-4 p-2 bg-red-600 text-black text-xl rounded hover:bg-red-700 transition-colors";
         }
     }
     return (
-        <div className="flex flex-col items-center w-full max-h-[80%] p-8">
-            <div className="grid grid-cols-2 overflow-y-auto gap-10 w-full h-full">
-                {items.map((item) => ( //essentially javascript equivalent of   (for item : items)
-                <button key={item} className={buttonClassName(item, selectedItems)} onClick={() => toggleSelection(item)}>
-                    {item}
-                </button>))}
+        <>
+            <div className="flex flex-col items-center mb-[10px] w-full font-semibold bg-gray-200 max-h-screen overflow-y-auto p-8">
+                <div className="grid grid-cols-3 gap-10 w-full h-full">
+                    {items.map((item) => ( //essentially javascript equivalent of   (for item : items)
+                    <button key={item} className={buttonClassName(item, selectedItems)} onClick={() => toggleSelection(item)}>
+                        {item}
+                    </button>))}
+                </div>
+
+            </div>      
+            <div className="flex items-center justify-center h-[100px] m-[20px] w-full">
+                <button
+                    onClick={() => handleSubmit()}
+                    className={submitButtonClass()}>
+                    Submit 
+                </button>                       
             </div>
-            <button
-                onClick={() => handleSubmit()}
-                className={submitButtonClass()}>
-                Submit 
-            </button>
-        </div>
+        </>
+
   );
 }

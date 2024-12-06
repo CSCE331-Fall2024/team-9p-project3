@@ -61,9 +61,9 @@ export default function AppetizerSelector({ cart, switchPage, numRequired, emplo
 
     const buttonClassName = (item, selectedItems) => {
         if (selectedItems.includes(item)) {
-            return "p-4 text-2xl text-black rounded transition-colors bg-gray-500";
+            return "p-4 text-2xl text-black rounded font-semibold transition-colors bg-red-600";
         } else {
-            return "p-4 text-2xl text-black rounded transition-colors bg-gray-300 hover:bg-gray-400";
+            return "p-4 text-2xl text-black rounded font-semibold transition-colors bg-white border-4 border-transparent hover:border-red-600";
         }
     };
     return (
@@ -76,7 +76,7 @@ export default function AppetizerSelector({ cart, switchPage, numRequired, emplo
             </div>
             <button
                 onClick={handleSubmit}
-                className="mt-4 p-2 bg-red-500 text-black text-xl rounded hover:bg-red-600 transition-colors">
+                className="mt-4 p-2 bg-red-600 text-black text-xl font-semibold rounded hover:bg-red-700 transition-colors">
                 Submit 
             </button>
         </div>
