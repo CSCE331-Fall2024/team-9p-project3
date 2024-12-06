@@ -4,18 +4,31 @@ import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, Entree
 export default function SidePage({ cart, switchPage, numEntreesRequired}) {
     var topPanelString = "Choose ";
     return (
-        <main className="flex flex-col justify-center items-center h-screen">
+        <main className="flex flex-col justify-center bg-gray-200 items-center h-screen">
             <OrderingHeader cart={cart} switchPage={switchPage}/>
-            <div className="flex flex-row h-full w-full">
-                <CartSidePanel cart={cart}/>
-                <div className="flex flex-col justify-center items-end h-full w-full">
-                    <OrderingTopPanel title="Choose a side"/>
-                    <div className="flex justify-center items-center h-5/6 bg-gray-200 w-full">
-                        <SideSelector cart={cart} switchPage={switchPage} numRequired={numEntreesRequired}/>
-                    </div>
+            <div className="flex flex-col justify-center items-end h-full w-full">
+                <OrderingTopPanel title="Choose a side"/>
+                <div className="flex justify-center items-center h-5/6 bg-gray-200 w-full">
+                    <SideSelector cart={cart} switchPage={switchPage} numRequired={numEntreesRequired}/>
                 </div>
             </div>
             <OrderingFooter switchPage={switchPage} cart={cart}/>
         </main>
     );
 }
+
+
+
+{/* <main className="flex flex-col justify-center bg-gray-200 items-center h-screen">
+<OrderingHeader cart={cart} switchPage={switchPage}/>
+<div className="flex flex-row h-full w-full">
+    <CartSidePanel cart={cart}/>
+    <div className="flex flex-col justify-center items-end h-full w-full">
+        <OrderingTopPanel title="Choose a side"/>
+        <div className="flex justify-center items-center h-5/6 bg-gray-200 w-full">
+            <SideSelector cart={cart} switchPage={switchPage} numRequired={numEntreesRequired}/>
+        </div>
+    </div>
+</div>
+<OrderingFooter switchPage={switchPage} cart={cart}/>
+</main> */}

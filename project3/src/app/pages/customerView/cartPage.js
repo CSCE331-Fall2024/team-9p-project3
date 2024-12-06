@@ -87,12 +87,12 @@ export default function CartPage({ cart, switchPage, employee=false }) {
             {/* <h1>EMPLOYEE VIEW = {employee.toString()}</h1> */}
             <div className="flex flex-row h-full w-full">
                 <div className="flex flex-col justify-center items-end h-full w-full">
-                    <div className="flex justify-center items-center w-full bg-white border-b-2 border-black">
-                        <h1 className="text-black text-5xl m-3">Cart</h1>
+                    <div className="flex justify-center items-center w-full bg-gray-200 border-b-2 border-black">
+                        <h1 className="text-black text-5xl font-semibold m-3">My Cart</h1>
                     </div>
-                    <div className="flex flex-col h-full w-full bg-gray-100">
+                    <div className="flex flex-col h-full w-full bg-gray-200">
                             {newCart.items.map((cartObject, index) => (
-                                <div key={index} className="flex flex-row w-full bg-red-200 border-b-2 border-black">
+                                <div key={index} className="flex flex-row w-full bg-white border-b-2 border-black">
                                     <div className="flex flex-col justify-start items-start h-full w-1/2 pl-2 pt-2">
                                         <h2 className="text-black text-3xl">{cartObject.getItemType()}</h2>
                                         {cartObject.getItems().map((entree, index2) => (
@@ -103,27 +103,27 @@ export default function CartPage({ cart, switchPage, employee=false }) {
                                         <h2 className="text-black text-2xl">${cartObject.getPrice().toFixed(2)}</h2>
                                     </div>
                                     <div className="flex flex-row justify-center items-center h-full w-1/3 gap-10">
-                                        <button className="text-white text-lg p-2 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => openPopup("Are you sure you want to remove this item", () => handleRemoveItem(cartObject))}>Remove</button>
-                                        <button className="text-white p-2 text-lg bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => copyCartItem(cartObject)}>Copy</button>
+                                        <button className="text-white text-lg p-2 font-semibold bg-red-600 rounded hover:bg-red-700 transition-colors" onClick={() => openPopup("Are you sure you want to remove this item", () => handleRemoveItem(cartObject))}>Remove</button>
+                                        <button className="text-white text-lg p-2 font-semibold bg-red-600 rounded hover:bg-red-700 transition-colors" onClick={() => copyCartItem(cartObject)}>Copy</button>
                                     </div>
                                 </div>
                                 
                             ))}
-                            <div className="mt-3 flex flex-row justify-between items-center h-full max-h-16 w-full bg-gray-300">
-                                <div className="text-black text-2xl font-bold w-1/2 pl-2 flex flex-row justify-start items-center gap-10">Total
-                                    <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => handleOrderMore(newCart)}>Order More</button>
+                            <div className="mt-3 flex flex-row justify-between items-center h-full max-h-16 w-full bg-gray-200">
+                                <div className="text-black text-2xl font-bold w-1/2 pl-2 flex flex-row justify-start items-center gap-10">Total:
+                                    <button className="text-white text-xl p-2 pl-4 pr-4 bg-red-600 rounded hover:bg-red-700 transition-colors" onClick={() => handleOrderMore(newCart)}>Order More</button>
                                 </div>
                                 <h1 className="text-black text-2xl font-bold w-1/6">${newCart.getCartPrice().toFixed(2)}</h1>
-                                <div className="w-1/3 h-full flex flex-row justify-center items-center gap-10">
+                                <div className="w-1/3 h-full flex flex-row font-semibold justify-center items-center gap-10">
                                     {newCart.items.length > 0 ? (
                                         <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => setAllergyPopup(true)}>View Allergen Information</button>
                                     ) : (
-                                        <button className="text-white text-xl p-2 pl-4 pr-4 bg-gray-600 rounded transition-colors">View Allergen Information</button>
+                                        <button className="text-gray-500 text-xl p-2 pl-4 pr-4 bg-gray-300 rounded transition-colors">View Allergen Information</button>
                                     )}
                                     {newCart.items.length > 0 ? (
                                         <button className="text-white text-xl p-2 pl-4 pr-4 bg-black rounded hover:bg-gray-800 hover:text-red-300 transition-colors" onClick={() => openPopup("Are you sure you want to place your order?", () => handlePlaceOrder(newCart))}>Place Order</button>
                                     ) : (
-                                        <button className="text-white text-xl p-2 pl-4 pr-4 bg-gray-600 rounded transition-colors">Place Order</button>
+                                        <button className="text-gray-500 text-xl p-2 pl-4 pr-4 bg-gray-300 rounded transition-colors">Place Order</button>
                                     )}
                                     
                                 </div>
