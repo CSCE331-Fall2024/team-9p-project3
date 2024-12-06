@@ -19,9 +19,7 @@ export default function EntreePage({cart, switchPage, numRequired, newCartObj })
             <OrderingHeader cart={cart} switchPage={switchPage} classname="sticky"/>
             <div className="flex flex-col flex-grow justify-center items-end w-full overflow-hidden">
                 <OrderingTopPanel title={topPanelString}/>
-
                 <EntreesSelector cart={cart} numRequired={numRequired} switchPage={switchPage} newCartObj={newCartObj}/>
-
             </div>
             <OrderingFooter switchPage={switchPage} cart={cart}/>
         </main>
