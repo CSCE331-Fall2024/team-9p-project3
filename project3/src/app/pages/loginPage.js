@@ -61,7 +61,7 @@ export default function LoginPage({ switchPage }) {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
-            <h1 className="text-4xl font-bold mb-8">Log In</h1>
+            <h1 className="text-4xl font-bold text-black mb-8">Log In</h1>
             <div className="flex flex-col gap-4 w-1/3">
                 <div className="h-6">
                     {error && <p className="text-red-600">{error}</p>}
@@ -71,14 +71,14 @@ export default function LoginPage({ switchPage }) {
                     placeholder="Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="p-4 border rounded-md focus:outline-none focus:border-red-600"
+                    className="p-4 border rounded-md focus:outline-none focus:border-red-600 text-black"
                 />
                 <input
                     type="password"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="p-4 border rounded-md focus:outline-none focus:border-red-600"
+                    className="p-4 border rounded-md focus:outline-none focus:border-red-600 text-black"
                 />
                 <button
                     onClick={handleNewLogin}
