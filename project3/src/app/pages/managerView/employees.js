@@ -50,13 +50,13 @@ export default function EmployeesPage({ switchPage }) {
                 throw new Error('Failed to fetch employees');
             }
             const data = await res.json();
-            setEmployees(data); // Update the employees state
+            setEmployees(data);
 
         } catch (err) {
             console.error('Error:', err);
             setError(err.message);
         } finally {
-            setLoading(false); // Set loading to false after the request is complete
+            setLoading(false);
 
         }
     };
