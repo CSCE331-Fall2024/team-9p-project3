@@ -26,6 +26,22 @@ This is a Point of Sale (POS) system built for fast food restaurants. The applic
 - **Styling**: Tailwind CSS
 - **Version Control**: Git & GitHub
 
+### Folder Structure:
+- `database_setup/`: Contains database configuration files and scripts for setting up and managing the backend database.
+- `public/`: Static files like images and icons.
+- `src/app/components/`: Reusable UI components used throughout the application.
+- `src/app/fonts/`: Custom fonts used for styling the application.
+- `src/app/objects/`: Define cart-related classes in the cartObject.js file.  
+- `src/app/pages/`: Main application pages, categorized by user roles:
+  - `api/`: Contains all API route handlers. Each subfolder or file represents a specific service.
+  - `customerView/`: Pages for customer interactions.
+  - `employeeView/`: Employee-specific pages.
+  - `managerView/`: Management functionalities like inventory, menu,usrage chart, and reports.
+  - `loginPage.js`: A page facilitating login functionality for employees and managers.
+  - `start.js`: Start page for this POS system. 
+- Global configuration files (`globals.css`, `next.config.js`).
+
+
 ---
 
 ## Setup Guide
