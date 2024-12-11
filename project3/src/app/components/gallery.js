@@ -1,3 +1,4 @@
+// This function Profile returns an image and refers it as "Alan L. Hart". 
 function Profile() {
     return (
       <img
@@ -6,7 +7,8 @@ function Profile() {
       />
     );
   }
-  
+
+  // This function displays a title and the same image three times. 
   export default function Gallery() {
     return (
       <section>

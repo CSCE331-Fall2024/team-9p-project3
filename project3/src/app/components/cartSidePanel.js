@@ -1,12 +1,14 @@
 import { Cart, CartObject } from "../objects/cartObject";
 
 
-
+// This function defines the Cart side Panel UI component. 
 export function CartSideBlock( {cartObject} ) {
     if(!(cartObject instanceof CartObject)) {
+        // console message. User for checking whether it is CartObject type. 
         console.log("Cant make a CartSideBlock with a non CartObject");
         //return;
     }
+    // output on the frontend interface page. 
     return (
         <div className="flex flex-col justify-center items-start w-full hover:bg-red-800/20 p-2">
             <div className="flex flex-row justify-between w-full">
@@ -25,6 +27,8 @@ export function CartSideBlock( {cartObject} ) {
  * @returns 
  */
 //the @param is how I get vscode to think cart is a Cart object, but it's not necessary to call functions like addItem
+
+// This function shows the customer's cart information on the Cart side Panel. 
 export default function CartSidePanel( {cart}) {
     if(!cart) cart = new Cart();
     return (    
