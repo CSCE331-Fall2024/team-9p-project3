@@ -1,3 +1,6 @@
+
+// This function defines four main buttons on the first page of customer view. 
+// That is, Bowl, Plate, Bigger Plate, and Appetizer. 
 export default function MenuItemButton({title, switchPage, cart, employee=false}) {
     let reqEntrees = "1";
     switch (title) {

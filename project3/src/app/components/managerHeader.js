@@ -1,11 +1,13 @@
 import Image from 'next/image';
 
+// This function defines and displays the header and titles of the Manager view interface. 
 export default function ManagerHeader({ switchPage }) {
-
+    // This handleGoBack function implements the function of switching to another page. 
     const handleGoBack = () => {
         switchPage('loginPage'); // Redirects back to the login page
     };
-
+    
+    // Display on the frontend interface. 
     return (
         <header className="flex justify-between items-center h-32 bg-red-600 text-white px-6 fixed top-0 left-0 w-full z-50">
             {/* Left side: Logo and title */}
