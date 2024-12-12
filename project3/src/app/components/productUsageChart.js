@@ -1,7 +1,6 @@
 
-
+// This function defines the productUsageChart
 export default function productUsageChart({data}) {
-
 
     if (data) {
         return (

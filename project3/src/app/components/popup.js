@@ -1,5 +1,6 @@
 import React from 'react';
 
+// This function defines popup. 
 export default function Popup({ message, onConfirm, onCancel }) {
     return (
         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
