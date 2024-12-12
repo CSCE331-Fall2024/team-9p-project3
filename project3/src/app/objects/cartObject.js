@@ -1,7 +1,6 @@
-// Import the client class from pg library. // using the 'pg' package for PostgreSQL
-//const { Client } = require('pg');
-
+// Defination of Cart class
 export class Cart {
+    // constructor of the Cart class. 
     constructor(...CartObjects) {
         this.items = [];
         CartObjects.forEach(cartObject => {
@@ -12,6 +11,7 @@ export class Cart {
             }
         });
     }
+    // Add a type of CartObject value to the items list. 
     addItem(item) {
         if(item instanceof CartObject) {
         this.items.push(item);
@@ -19,13 +19,18 @@ export class Cart {
             console.log("Tried to add a non CartObject to a Cart");
         }
     }
+
+    // Get the price of a customer's cart
     getCartPrice() {
         let totalPrice = 0;
+        // Loop through the cart to calculate the total price. 
         this.items.forEach(cartObject => {
             totalPrice+=cartObject.getPrice();
         })
         return totalPrice;
     }
+
+    // Remove a cartObject such as Bowl from the customer's cart. 
     removeItem(item) {
         if(item instanceof CartObject) { 
             console.log(item);
@@ -37,19 +42,22 @@ export class Cart {
                 console.log("When rmeoving item from cart, item not found.");
             }
         } else {
+            // Error message if the item is not type of CartObject. 
             console.log("Tried to remove a non CartObject item from cart");
         }
     }
 }
 
+// Definition of CartObject class 
 export class CartObject {
-    //price = 0;
+    // Constructor of CartObject class 
     constructor(sideOrAppetizer, entreeItems = []) {
         this.sideOrAppetizer = sideOrAppetizer;
         this.entreeItems = entreeItems;
     }
+    // Get the price of a CartObject such as Bowl, Plate, Bigger Plate, and Appetizer. 
     getPrice() {
-        //return this.price;
+        // Based on different types, return different prices. 
         switch (this.entreeItems.length) {
             case 0:
                 return 3.00;
@@ -63,6 +71,7 @@ export class CartObject {
                 break;
         }
     }
+    // Get the ItemType of this CartObject. 
     getItemType() {
         switch (this.entreeItems.length) {
             case 0:
@@ -77,6 +86,7 @@ export class CartObject {
                 break;
         }
     }
+    // Return the Itemtype of this CartObject as a Number
     getItemTypeAsNumber() {
         switch (this.entreeItems.length) {
             case 0:
@@ -91,6 +101,7 @@ export class CartObject {
                 break;
         }
     }
+    // Return a list of menu items inside the CartObject, such as [Orange Chicken, Mushroom Chicken]; 
     getItems() {
         //check if it's an appetizer
         if(this.entreeItems.length == 0) {
@@ -100,63 +111,3 @@ export class CartObject {
         }
     }
 }
-
-// Define connection parameters
-/* const teamName = "team_9p";
-const dbName = `${teamName}_db`;
-const dbConnectionString = `postgresql://csce-315-db.engr.tamu.edu/${dbName}`;
-const dbUser = "YuanWang"; // p.s. I don't know whether this dbUser name is necessary. 
-const dbPassword = "bumpyice26"; 
-
-// Function to get a new database connection
-function getConnection() {
-    return new Client({
-        connectionString: dbConnectionString,
-        user: dbUser,
-        password: dbPassword,
-    });
-}
-/**
- * Uploads a Cart object to the database
- * @param {Cart} cart - The Cart object containing CartObjects to be uploaded
- */
-/** 
-async function uploadCartToDatabase(cart) {
-    const client = getConnection();
-
-    try{
-        // Connect to the database; 
-        await client.connect();
-        console.log("Connected to the database.");
-
-        // Start a transaction
-        await client.query('BEGIN');
-
-        // Insert each CartObject from the Cart object into the database
-        for (const cartObject of cart.items) {
-            const itemType = cartObject.getItemType();
-            const items = cartObject.getItems().join(', '); // Convert items to a comma-separated string
-            const price = cartObject.getPrice();
-
-            // Insert into the database
-            await client.query(
-                // TODO: cart_items table, we need to create one. 
-                'INSERT INTO cart_items (item_type, items, price) VALUES ($1, $2, $3)',
-                [itemType, items, price]
-            );
-        }
-
-        // Commit the transaction after successful insertion of all items
-        await client.query('COMMIT');
-        console.log("Cart successfully uploaded to the database.");
-    }catch(error){
-        // Roll back transaction if there’s an error
-        await client.query('ROLLBACK');
-        console.error("Failed to upload cart to database:", error);
-    }finally{
-        // Close the connection
-        await client.end();
-        console.log("Disconnected from the database.");
-    }
-}
- */

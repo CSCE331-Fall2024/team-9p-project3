@@ -2,6 +2,7 @@ import { uploadCustomerItems, uploadCartToDatabase } from "@/app/pages/api/uploa
 import { Cart } from "@/app/objects/cartObject";
 import { CartObject } from "@/app/objects/cartObject";
 
+// This function handles a POST request for updating all related database tables when submitting a new order. 
 export async function POST(req) {
     try {
         const { cartData } = await req.json();  // Parse JSON

@@ -1,14 +1,17 @@
 const { query } = require("../dbconn");
 
+// This function handles a POST request for generating a X report. 
 export async function POST(req) {
     try {
         // Parse the request body
         const { dateFrom, dateTo } = await req.json();
 
+        // dateFrom is the beginning of today. 
+        // dateTo is the current time of today. 
         console.log("dateFrom: ", dateFrom);
         console.log("dateTo: ", dateTo);
 
-        // SQL query to fetch total orders and price
+        // SQL query to fetch total orders and price between dateFrom and dateTo. 
         const totalQuery = `
             SELECT 
                 COUNT(*) AS order_count, 
@@ -17,9 +20,11 @@ export async function POST(req) {
             WHERE order_time BETWEEN $1 AND $2
         `;
         const totalValues = [dateFrom, dateTo];
+        // Executes the Database command using query() function.
+        // The return value of database query is stored in variable totalResult. 
         const totalResult = await query(totalQuery, totalValues);
 
-        // SQL query to fetch hourly sales and orders
+        // SQL query to fetch hourly sales and orders 
         const hourlyQuery = `
             SELECT 
                 DATE_TRUNC('hour', order_time) AS hour, 
@@ -30,8 +35,9 @@ export async function POST(req) {
             GROUP BY hour
             ORDER BY hour
         `;
+        // Executes the Database command using query() function.
         const hourlyResult = await query(hourlyQuery, totalValues);
-
+        // console message. Check whether the information of the result is correct. 
         console.log("xreport total result: ", totalResult);
         console.log("xreport hourly result: ", hourlyResult);
 
