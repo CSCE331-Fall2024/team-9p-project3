@@ -1,14 +1,23 @@
 import { useEffect, useState } from 'react';
 
+// This function display daily weather such as temperature. 
 export default function WeatherDisplay() {
+
+    // Declare state variables and functions to update it. 
+    // The initial value of each state variables is set by useState. 
     const [temperature, setTemperature] = useState(null);
     const [iconUrl, setIconUrl] = useState(null);
     const [error, setError] = useState(null);
 
+    // This function defines and runs fetchWeather function. 
     useEffect(() => {
+        // This fetchWeather function sends a GET request to the server side
         async function fetchWeather() {
             try {
+                // The Path of the specific API endpoint 
                 const response = await fetch('./pages/api/weather?lat=30.628&lon=-96.3344');
+
+                // Check whether the server side works well. 
                 if (!response.ok) {
                     throw new Error(`Error fetching weather data: ${response.status}`);
                 }
@@ -32,7 +41,7 @@ export default function WeatherDisplay() {
         }
 
         fetchWeather();
-    }, []);
+    }, []); // [] ensures that useEffect runs only once. 
 
     if (error) {
         return <div>Error: {error}</div>;

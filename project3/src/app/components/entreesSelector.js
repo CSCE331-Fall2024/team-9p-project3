@@ -101,6 +101,7 @@ export default function EntreesSelector({ cart, numRequired, switchPage, newCart
             return "mt-4 p-2 bg-red-600 text-black text-xl rounded hover:bg-red-700 transition-colors";
         }
     }
+    
     // Below codes display all menu items and a submit button on the frontend interface page. 
     return (
         <>
