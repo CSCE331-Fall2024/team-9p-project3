@@ -2,8 +2,12 @@ import { useState } from "react";
 import { OrderingHeader, Popup, OrderingFooter, AllergenText } from "../../components";
 import { Cart } from "@/app/objects/cartObject";
 
+
 export default function CartPage({ cart, switchPage, employee=false }) {
     console.log("Starting Cartpage. Employee = ", employee);
+
+    // Declare state variables and functions to update it. 
+    // The initial value of each state variables is set by useState. 
     const [newCart, setCart] = useState(cart);
     const [showPopup, setShowPopup] = useState(false);
     const [popupFunction, setPopupFunction] = useState(null);
@@ -45,13 +49,14 @@ export default function CartPage({ cart, switchPage, employee=false }) {
         newCart.addItem(cartObject);
         setCart(new Cart( ...newCart.items));
     }
-
+    // This function upload orders and all relative data to the backend database. 
     const handlePlaceOrder = async(cart) => {
-        //TODO: upload cart order
         // cart parameter is a Cart class defined in objects/cartObject.js
         console.log("Outside try");
         try {
+            // Console Message
             console.log("Inside try");
+            // This function sends a POST request to the specific API endpoint for updating the customer_items and customer_orders table.
             const response = await fetch("./pages/api/upload", {
                 method: "POST",
                 headers: {
@@ -60,7 +65,8 @@ export default function CartPage({ cart, switchPage, employee=false }) {
                 body: JSON.stringify({ cartData: cart }),
             });
             console.log("After fetch");
-
+            
+            // Check if the server works well. 
             if (response.ok) {
                 console.log("Fetch response OK");
                 const data = await response.json();

@@ -1,18 +1,22 @@
+// import export functions
 import { ManagerHeader } from "../../components";
 import React, { useDebugValue, useState } from 'react';
 import { ProductUsageChart } from "../../components";
 
-
+// This function implments the backend codes of the Usage Chart Page in the manager View. 
 export default function UsageChartPage({ switchPage }) {
-
+    // Declare state variables and functions to update it.          
+    // The initial value of each state variables is set by useState.
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [data, setData] = useState(null);
 
+    // The function redirects back to the login page
     const handleGoBack = () => {
-        switchPage('managerMainPage'); // Redirects back to the login page
+        switchPage('managerMainPage'); 
     };
 
+    // fetchData
     async function renderGraph() {
         console.log(startDate,endDate)
         const response = await fetch(`./pages/api/productUsage?startDate=${startDate}&endDate=${endDate}`)

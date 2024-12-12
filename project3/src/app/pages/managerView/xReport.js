@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { ManagerHeader } from "../../components";
 
+// This function implements the backend code for X report
 export default function XReportPage({ switchPage }) {
     const [reportData, setReportData] = useState({
         total: { orderCount: 0, totalPrice: 0 },
         hourly: [],
     });
 
+    // Generate the current time 
     const currentDate = new Date();
+    // Create the beginning of today, that is, 00:00:00
     const dateFrom = new Date(
         currentDate.getFullYear(),
         currentDate.getMonth(),
@@ -16,6 +19,7 @@ export default function XReportPage({ switchPage }) {
         0,
         0
     );
+        // This function format the time display. 
         const formatDateTime = (date) => {
         return date.toLocaleString("en-US", {
             year: "numeric",
@@ -27,7 +31,7 @@ export default function XReportPage({ switchPage }) {
             hour12: false,
         });
     };
-
+    // Format the time display
     const formattedDateFrom = formatDateTime(dateFrom);
     const formattedDateTo = formatDateTime(currentDate);
 

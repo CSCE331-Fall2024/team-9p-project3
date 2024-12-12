@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import {EmployeeRow, ManagerHeader} from "../../components";
 
+// This function implements the Managing Employees Table in the Manager View. 
 export default function EmployeesPage({ switchPage }) {
+    // Declare state variables and functions to update it. 
+    // The initial value of each state variables is set by useState. 
     const [employees, setEmployees] = useState([]); // State to store employees
     const [loading, setLoading] = useState(true); // State to track loading status
     const [error, setError] = useState(null); // State to track errors
@@ -10,17 +13,21 @@ export default function EmployeesPage({ switchPage }) {
     const [name, setName] = useState('');
     const [manager, setManager] = useState('');
 
+    // This function redirects back to the manager main page
     const handleGoBack = () => {
-        switchPage('managerMainPage'); // Redirects back to the manager main page
+        switchPage('managerMainPage'); 
     };
 
+    // This function sends a POST request for creating a new employee. 
     async function addNew() {
         try {
+            // The Path of the sepcific API endpoint. 
             const response = await fetch("./pages/api/employee/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
+                // Define the request body 
                 body:JSON.stringify({
                     "newID":employeeId,
                     "name":name,
@@ -28,6 +35,7 @@ export default function EmployeesPage({ switchPage }) {
                     "isManager":manager
                 })
             });
+            // Check whether the server side works well. 
             if(response.ok) {
                 console.log("Add Successful");
                 fetchData();
@@ -37,6 +45,7 @@ export default function EmployeesPage({ switchPage }) {
             }
         }
         catch (error) {
+            // Error message if any exception above. 
             console.error('Error: ', error);
         }
     }

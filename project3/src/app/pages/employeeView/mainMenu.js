@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter } from "../../components";
 
+// This function implements the Employee Main Menu Page. 
 export default function EmployeeMainMenuPage({ cart, switchPage }) {
     // if(cart == '' || !cart) {
     //     cart = new Cart();

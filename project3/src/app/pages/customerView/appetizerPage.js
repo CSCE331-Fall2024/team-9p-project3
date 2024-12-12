@@ -1,6 +1,6 @@
 import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, OrderingFooter, AppetizerSelector } from "../../components";
 
-
+// This function shows the Appetizer frontend interface
 export default function AppetizerPage({cart, switchPage}) {
     var topPanelString = "Choose ";
     return (

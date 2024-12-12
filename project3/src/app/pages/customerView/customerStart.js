@@ -1,5 +1,6 @@
 import { Cart } from "@/app/objects/cartObject";
 
+// This function implements Customer Start Page. 
 export default function CustomerStartPage({ switchPage }) {
     const newCart = new Cart();
     return (

@@ -1,6 +1,7 @@
 import { ManagerHeader } from "../../components";
 import { Cart } from "@/app/objects/cartObject";
 
+// This function implements Manager Main Page
 export default function ManagerMainPage({ switchPage }) {
     const handleGoBack = () => {
         switchPage('loginPage'); // Redirects back to the login page

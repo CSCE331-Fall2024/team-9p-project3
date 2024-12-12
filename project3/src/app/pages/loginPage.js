@@ -5,13 +5,15 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { deleteUser } from 'firebase/auth';
 
-
+// This function implments the backend codes for the Log in Page
 export default function LoginPage({ switchPage }) {
+    // Declare state variables and functions to update it. 
+    // The initial value of each state variables is set by useState. 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-
+    // This function implements the function of log in. 
     const handleNewLogin = async () => {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, username+"@project3.com", password);
@@ -25,13 +27,14 @@ export default function LoginPage({ switchPage }) {
     }
 
     
-
+        // This function gets whether the person who log in is employee or manager. 
         const getUserRole = async() => {
             /* if(username === "employee") {
                 const newCart = new Cart();
                 switchPage('employeeMainMenuPage', newCart);
             } */
             try{
+                // Send a GET request
                 const response = await fetch(`./pages/api/login?username=${username}`);
                 const isValid = await response.json();
                 if (!response.ok) {

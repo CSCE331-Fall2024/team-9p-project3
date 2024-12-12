@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { InventoryRow } from '@/app/components';
 import { ManagerHeader } from '../../components';
 
+// This function implements the backend code of managing inventory page in Manager View
 export default function InventoryPage({ switchPage }) {
-
+    // Declare state variables and functions to update it.          
+    // The initial value of each state variables is set by useState.    
     const [inventoryItems, setInventoryItems] = useState([]);
     const [loading, setLoading] = useState(true); 
     const [error, setError] = useState(false); 
@@ -11,21 +13,23 @@ export default function InventoryPage({ switchPage }) {
     const [name, setName] = useState('');
     const [stock,setStock] = useState('');
 
-
+    // This function redirects back to the login page
     const handleGoBack = () => {
-        switchPage('managerMainPage'); // Redirects back to the login page
+        switchPage('managerMainPage'); 
     };
 
+    // This function sends a POST request for selecting inventory items.
     const fetchData = async () => {
         try {
             setLoading(true)
+            // The Path of API endpoint
             const res = await fetch('./pages/api/inventory/read');
             if (!res.ok) {
                 throw new Error('Failed to fetch inventory');
             }
             const data = await res.json();
-            setInventoryItems(data); // Update the inventory state
-
+            // Update the inventory state
+            setInventoryItems(data); 
         } catch (err) {
             console.error('Error:', err);
             setError(err.message);
@@ -35,20 +39,23 @@ export default function InventoryPage({ switchPage }) {
         }
     };
 
-
+    // This function implements the function of creating a new inventory item. 
     async function addNew() {
         try {
+            // The Path of API endpoint. 
             const response = await fetch("./pages/api/inventory/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
+                // Define the request body so that the server side can use relevant data. 
                 body:JSON.stringify({
                     "ID":ID,
                     "name":name,
                     "stock":stock
                 })
             });
+            // Check if the server side works well. 
             if(response.ok) {
                 console.log("Add Successful");
                 fetchData();
@@ -61,7 +68,7 @@ export default function InventoryPage({ switchPage }) {
             console.error('Error: ', error);
         }
     }
-
+    
     useEffect(() => {
         fetchData();
     }, []);

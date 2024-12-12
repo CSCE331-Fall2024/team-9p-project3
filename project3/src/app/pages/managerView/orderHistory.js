@@ -1,29 +1,16 @@
-// export default function OrderHistoryPage({ switchPage }) {
-//     const handleGoBack = () => {
-//         switchPage('managerMainPage'); // Redirects back to the login page
-//     };
-
-//     return (
-//         <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-200">
-//             <h1 className="text-4xl font-bold mb-8">OrderHistory</h1>
-//             <button
-//                 onClick={handleGoBack}
-//                 className="p-4 bg-red-500 text-white rounded-md hover:bg-red-600"
-//             >
-//                 Back
-//             </button>
-//         </div>
-//     );
-// }
-
 import { useEffect, useState } from 'react';
-
+// This function implements the backend codes for Order History 
+// However, our team decides to discard the Order History function. 
 export default function OrderHistory() {
+  // Declare state variables and functions to update it.          
+  // The initial value of each state variables is set by useState.
   const [orders, setOrders] = useState([]);
-
+  
+  // The function sends a POST request. 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
+        // The Path of specific API endpoint
         const res = await fetch('./pages/api/orderHistory');
         if (!res.ok) {
           throw new Error('Failed to fetch data');

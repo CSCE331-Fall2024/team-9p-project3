@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter } from "../../components";
 
+// This functon implements EntreePage
 export default function EntreePage({cart, switchPage, numRequired, newCartObj }) {
     var topPanelString = "Choose ";
     switch (numRequired) {

@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react';
 import { MenuRow } from '@/app/components';
 import { ManagerHeader } from '../../components';
 
+// The function implements the backend of Menu Items Page
 export default function MenuItemsPage({ switchPage }) {
+    // Declare state variables and functions to update it.          
+    // The initial value of each state variables is set by useState.   
     const [menuItems, setMenuItems] = useState([]);
     const [loading, setLoading] = useState(true); 
     const [error, setError] = useState(false); 
@@ -35,14 +38,16 @@ export default function MenuItemsPage({ switchPage }) {
         }
     };
 
-
+    // This function sends the POST request for creating a new menu item. 
     async function addNew() {
         try {
+            // The Path of API endpoint
             const response = await fetch("./pages/api/menu/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
+                // Defines the request body so that the server side can use relevant data. 
                 body:JSON.stringify({
                     "ID":ID,
                     "name":name,
@@ -50,6 +55,7 @@ export default function MenuItemsPage({ switchPage }) {
                     "type":type
                 })
             });
+            // Check if the server side works well. 
             if(response.ok) {
                 console.log("Add Successful");
                 fetchData();

@@ -24,7 +24,7 @@ async function uploadCartToDatabase(cart,generatedIds) {
 
       console.log("nextId:", nextId);
       console.log("customer_item:", );  // Replace with actual variable for customer_item
-      console.log("order_time:", null);        // Replace with actual variable for order_time
+      console.log("order_time:", null);         // Replace with actual variable for order_time
       console.log("price:", totalPrice);                  // Replace with actual variable for price
 
       const valid = JSON.stringify(generatedIds);

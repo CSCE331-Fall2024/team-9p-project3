@@ -1,6 +1,6 @@
 import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, OrderingFooter, AppetizerSelector } from "../../components";
 
-
+// This function implements Employee Appetizer Page. 
 export default function EmployeeAppetizerPage({cart, switchPage}) {
     var topPanelString = "Choose ";
     return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ManagerHeader } from "../../components";
 
-
+// This function implements the backend code for Z report. 
 export default function XReportPage({ switchPage }) {
     const [reportData, setReportData] = useState({
         total: { orderCount: 0, totalPrice: 0 },
@@ -10,8 +10,9 @@ export default function XReportPage({ switchPage }) {
     const [dateFrom, setDateFrom] = useState("");
     const [loading, setLoading] = useState(true); // New loading state
 
-
+    // Generate the current time
     const currentDate = new Date();
+        // This function format the time display such as time zones and digits number. 
         const formatDateTime = (date) => {
         return date.toLocaleString("en-US", {
             year: "numeric",

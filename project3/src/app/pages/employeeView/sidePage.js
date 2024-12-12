@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter, SideSelector } from "../../components";
 
+// This function implements Employe side Page. 
 export default function EmployeeSidePage({ cart, switchPage, numEntreesRequired}) {
     var topPanelString = "Choose ";
     return (

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter, SideSelector } from "../../components";
 
+// This function implements Side Page. 
 export default function SidePage({ cart, switchPage, numEntreesRequired}) {
     var topPanelString = "Choose ";
     return (
@@ -16,4 +17,3 @@ export default function SidePage({ cart, switchPage, numEntreesRequired}) {
         </main>
     );
 }
-

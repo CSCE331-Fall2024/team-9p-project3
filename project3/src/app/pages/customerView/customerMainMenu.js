@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CartSidePanel, OrderingHeader, OrderingTopPanel, MenuItemButton, EntreesSelector, OrderingFooter } from "../../components";
 
+// This function implements Customer Main Menu page. 
 export default function CustomerMainMenuPage({ cart, switchPage }) {
     // if(cart == '' || !cart) {
     //     cart = new Cart();
